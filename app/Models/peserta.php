@@ -23,7 +23,8 @@ class peserta extends Model
         'no_telp_instansi',
         'seminar',
         'workshop',
-        'password'
+        'password',
+        'idpeserta'
     ];
 
     public static function getWorkshop($id)

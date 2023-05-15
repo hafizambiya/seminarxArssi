@@ -77,12 +77,21 @@ class PesertaController extends Controller
             ->orderBy('idpeserta', 'desc')
             ->first();
 
+
+
+        // dd($last_peserta, $last_peserta->idpeserta);
+
+
+
         $nomor_urut = 1;
         if ($last_peserta) {
-            $nomor_urut = substr($last_peserta->idpeserta, -5) + 1;
+            $nomor_urut = intval(substr($last_peserta->idpeserta, -5))  + 1;
         }
 
+
+
         $nomor_urut_string = str_pad($nomor_urut, 5, '0', STR_PAD_LEFT);
+
         $idpeserta = $id_prefix . $nomor_urut_string;
 
         $peserta = new Peserta;
