@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             // $table->id();
-            $table->char('idpeserta', 9);
+            $table->string('idpeserta', 9);
+            $table->integer('no_peserta');
             $table->string('nama_peserta');
             $table->string('email')->unique();
             $table->char('no_hp');

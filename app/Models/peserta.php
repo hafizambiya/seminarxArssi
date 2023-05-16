@@ -9,7 +9,7 @@ class peserta extends Model
 {
     use HasFactory;
     protected $table = 'pesertas';
-    protected $primaryKey = 'idpeserta';
+    protected $primaryKey = 'no_peserta';
 
     protected $fillable = [
         'nama_peserta',
