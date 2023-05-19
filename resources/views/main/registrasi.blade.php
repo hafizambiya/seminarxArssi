@@ -11,15 +11,6 @@
             <h1 class="text-white">Pendaftaran Seminar Nasional ARSSI X dan Hospital Expo</h1>
             <p class="text-lead text-light">Use these awesome forms to login or create new account in
               your project for free.</p>
-            @if ($errors->any())
-              <div class="alert alert-danger">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
-            @endif
           </div>
         </div>
       </div>
@@ -41,7 +32,7 @@
 
             <div class="card-body px-lg-5 py-lg-5">
 
-              <form enctype="multipart/form-data" method="post" action="{{ url('registrasi') }}">
+              <form enctype="multipart/form-data" method="post" action="{{ url('registrasi_proses') }}">
                 @csrf
                 <div class="container">
                   <div class="row justify-content-md-cente">
@@ -53,8 +44,11 @@
                             <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                           </div>
                           <input class="form-control" placeholder="Nama Peserta" type="text"
-                            name="nama_p">
+                            name="nama_p" value="{{ old('nama_p') }}">
                         </div>
+                        @error('nama_p')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start email ------------------------- --}}
                       <div class="form-group">
@@ -63,8 +57,11 @@
                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                           </div>
                           <input class="form-control" placeholder="Email Peseta" type="email"
-                            name="email_p">
+                            name="email_p" value="{{ old('email_p') }}">
                         </div>
+                        @error('email_p')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start password ------------------------- --}}
                       <div class="form-group">
@@ -73,8 +70,11 @@
                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                           </div>
                           <input class="form-control" placeholder="Password" type="password"
-                            name="password">
+                            name="password" value="{{ old('password') }}">
                         </div>
+                        @error('password')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start no hp ------------------------- --}}
                       <div class="form-group">
@@ -83,8 +83,11 @@
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
                           <input class="form-control" placeholder="No HP Peserta" type="tel"
-                            name="phone_p">
+                            name="phone_p" value="{{ old('phone_p') }}">
                         </div>
+                        @error('phone_p')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start jabatan ------------------------- --}}
                       <div class="form-group">
@@ -92,7 +95,8 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-bold-up"></i></span>
                           </div>
-                          <input class="form-control" placeholder="Jabatan" type="text" name="jabatan">
+                          <input class="form-control" placeholder="Jabatan" type="text" name="jabatan"
+                            value="{{ old('jabatan') }}">
                         </div>
                       </div>
                       {{-- ------------------------- start instansi ------------------------- --}}
@@ -102,8 +106,11 @@
                             <span class="input-group-text"><i class="ni ni-building"></i></span>
                           </div>
                           <input class="form-control" placeholder="Asal Instansi" type="text"
-                            name="instansi">
+                            name="instansi" value="{{ old('instansi') }}">
                         </div>
+                        @error('instansi')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
 
                     </div>
@@ -115,8 +122,11 @@
                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                           </div>
                           <input class="form-control" placeholder="Email Instnasi" type="email"
-                            name="email_instansi">
+                            name="email_instansi" value="{{ old('email_instansi') }}">
                         </div>
+                        @error('email_instansi')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start Alamat Instansi ------------------------- --}}
                       <div class="form-group">
@@ -125,8 +135,11 @@
                             <span class="input-group-text"><i class="ni ni-square-pin"></i></span>
                           </div>
                           <input class="form-control" placeholder="Alamat Instansi" type="text"
-                            name="alamat">
+                            name="alamat" value="{{ old('alamat') }}">
                         </div>
+                        @error('alamat')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start telp instansi ------------------------- --}}
                       <div class="form-group">
@@ -135,8 +148,11 @@
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
                           <input class="form-control" placeholder="Telp Intansi" type="tel"
-                            name="phone_instansi">
+                            name="phone_instansi" value="{{ old('phone_instansi') }}">
                         </div>
+                        @error('phone_instansi')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
 
                       {{-- ------------------------- start nama pendaftar ------------------------- --}}
@@ -146,8 +162,11 @@
                             <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                           </div>
                           <input class="form-control" placeholder="Nama Pendaftar" type="text"
-                            name="nama_pendaftar">
+                            name="nama_pendaftar" value="{{ old('nama_pendaftar') }}">
                         </div>
+                        @error('nama_pendaftar')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start no hp pendaftar ------------------------- --}}
                       <div class="form-group">
@@ -156,8 +175,11 @@
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
                           <input class="form-control" placeholder="No HP Pendatar" type="text"
-                            name="no_hp_pendaftar">
+                            name="no_hp_pendaftar" value="{{ old('no_hp_pendaftar') }}">
                         </div>
+                        @error('no_hp_pendaftar')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
 
                       {{-- ------------------------- start seminar------------------------- --}}
