@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -11,22 +12,24 @@ class LoginController extends Controller
         return view('main.login');
     }
 
-    public function proses(Request $request){
+    public function proses(Request $request)
+    {
         $request->validate([
-            'email' =>'required',
-            'password' =>'required'
+            'email' => 'required',
+            'password' => 'required'
         ]);
 
-        $data =[
+        $data = [
             'email' => $request->email,
             'password' => $request->password,
         ];
+        $remember = $request->has('remember');
 
-        $validasi = Auth::attempt($data);
-        if($validasi){
+        $validasi = Auth::attempt($data, $remember);
+        if ($validasi) {
             return redirect()->intended('peserta');
-        }else {
-            return redirect()->route('login')->with('failed','email atau password salah');
+        } else {
+            return redirect()->route('login')->with('failed', 'email atau password salah');
         }
     }
 

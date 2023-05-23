@@ -32,7 +32,7 @@ class StorepesertaRequest extends FormRequest
             'phone_instansi' => 'required',
             // 'seminar' => 'required',
             // 'workshop' => 'required',
-            'password' => 'required',
+            'password' => 'required|confirmed',
 
 
         ];

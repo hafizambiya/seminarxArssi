@@ -1,28 +1,16 @@
  @extends('layout.template')
 
- @section('title', 'Login')
-
+ @section('title', 'Reset Password')
  @section('content')
-
    <!-- Header -->
    <div class="header bg-gradient-primary py-7 py-lg-8">
      <div class="container">
-       <div class="header-body text-center mb-2">
+       <div class="header-body text-center">
          <div class="row justify-content-center">
            <div class="col-lg-5 col-md-6">
              <h1 class="text-white">Welcome!</h1>
              <p class="text-lead text-light">Use these awesome forms to login or create new account in your
                project for free.</p>
-             @if ($message = Session::get('failed'))
-               <p class="text-danger bg-light">{{ $message }}
-               </p>
-             @endif
-
-             @if (session('status'))
-               <div class="alert alert-success">
-                 {{ session('status') }}
-               </div>
-             @endif
 
 
 
@@ -45,20 +33,13 @@
 
            <div class="card-body px-lg-5 py-lg-5">
 
-             <form action="{{ url('login/proses') }}" method="POST">
+             <form action="{{ route('password.update') }}" method="POST">
                @csrf
-               <div class="form-group mb-3">
-                 <div class="input-group input-group-alternative">
-                   <div class="input-group-prepend">
-                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                   </div>
-                   <input class="form-control" placeholder="Email" type="email" name="email"
-                     value="{{ old('email') }}">
-                 </div>
-                 @error('email')
-                   {{ $message }}
-                 @enderror
-               </div>
+               <input type="hidden" value="{{ request()->token }}" name="token">
+               <input type="hidden" value="{{ request()->email }}" name="email">
+
+               {{-- {{ dd(request()->email) }} --}}
+
                <div class="form-group">
                  <div class="input-group input-group-alternative">
                    <div class="input-group-prepend">
@@ -70,31 +51,29 @@
                    {{ $message }}
                  @enderror
                </div>
-               <div class="custom-control custom-control-alternative custom-checkbox">
-                 <input class="custom-control-input" id=" customCheckLogin" type="checkbox"
-                   name="remember">
-                 <label class="custom-control-label" for=" customCheckLogin">
-                   <span class="text-muted">Remember me</span>
-                 </label>
+               {{-- password confirmation --}}
+               <div class="form-group">
+                 <div class="input-group input-group-alternative">
+                   <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                   </div>
+                   <input class="form-control" placeholder="Password Confirmation" type="password"
+                     name="password_confirmation">
+                 </div>
+                 @error('password')
+                   {{ $message }}
+                 @enderror
                </div>
+
                <div class="text-center">
-                 <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                 <button type="submit" value="Update Password" class="btn btn-primary my-4">Reset
+                   Password</button>
                </div>
              </form>
            </div>
          </div>
-         <div class="row mt-3">
-           <div class="col-6">
-             <a href="{{ url('/forgot-password') }}" class="text-light"><small>Forgot password?</small></a>
-           </div>
-           <div class="col-6 text-right">
-             <a href="{{ url('/registrasi') }}" class="text-light"><small>Create new account</small></a>
-           </div>
-         </div>
+
        </div>
      </div>
    </div>
-
-   @if ($message = session::get('failed'))
-   @endif
  @endsection

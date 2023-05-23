@@ -1,14 +1,14 @@
 <!-- Header -->
 @extends('layout.template')
 
-
+@section('title', 'Registrasi')
 @section('content')
   <div class="header bg-gradient-primary py-7 py-lg-8">
     <div class="container">
-      <div class="header-body text-center mb-7">
+      <div class="header-body text-center mb-4 mt-3">
         <div class="row justify-content-center">
           <div class="col-lg-5 col-md-6">
-            <h1 class="text-white">Pendaftaran Seminar Nasional ARSSI X dan Hospital Expo</h1>
+            <h1 class="text-white">Pendaftaran Seminar Nasional ARSSI X dan Healthcare Expo VIII</h1>
             <p class="text-lead text-light">Use these awesome forms to login or create new account in
               your project for free.</p>
           </div>
@@ -26,25 +26,27 @@
   <div class="container mt--8 pb-5">
     <!-- Table -->
     <div class="row justify-content-center">
-      <div class="col-lg-10 col-md-8">
+      <div class="col-lg-10 col-md-12">
         <div class="card bg-secondary shadow border-0">
           <div class="card-header bg-transparent pb-5">
 
             <div class="card-body px-lg-5 py-lg-5">
+              {{-- ----------------------------------------- form ada disini---------------------------------- --}}
 
               <form enctype="multipart/form-data" method="post" action="{{ url('registrasi_proses') }}">
                 @csrf
                 <div class="container">
                   <div class="row justify-content-md-cente">
-                    <div class="col col-lg-6 col-sm-12">
+                    <div class="col col-lg-6 col-sm-12 col-md-12 col-12">
                       {{-- ------------------------- start name ------------------------- --}}
                       <div class="form-group">
+                        <label for="nama_p" style="font-size: 18px">Data Peserta</label>
                         <div class="input-group input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                           </div>
-                          <input class="form-control" placeholder="Nama Peserta" type="text"
-                            name="nama_p" value="{{ old('nama_p') }}">
+                          <input class="form-control" id="nama_p" placeholder="Nama Peserta"
+                            type="text" name="nama_p" value="{{ old('nama_p') }}">
                         </div>
                         @error('nama_p')
                           <p class="text-danger">{{ $message }}</p>
@@ -52,6 +54,7 @@
                       </div>
                       {{-- ------------------------- start email ------------------------- --}}
                       <div class="form-group">
+
                         <div class="input-group input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -76,27 +79,70 @@
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
                       </div>
+                      {{-- ------------------------- start password confirmation------------------------- --}}
+                      <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                          </div>
+                          <input class="form-control" placeholder="Confirm Password" type="password"
+                            name="password_confirmation">
+                        </div>
+                      </div>
                       {{-- ------------------------- start no hp ------------------------- --}}
                       <div class="form-group">
                         <div class="input-group input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
-                          <input class="form-control" placeholder="No HP Peserta" type="tel"
+                          <input class="form-control" placeholder="No HP Peserta" type="number"
                             name="phone_p" value="{{ old('phone_p') }}">
                         </div>
                         @error('phone_p')
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
                       </div>
+                      {{-- ------------------------- start seminar------------------------- --}}
+
+                      <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+
+                          <select class="form-control" name="seminar" required>
+                            <option value="">Pilih opsi Seminar</option>
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                          </select>
+                        </div>
+                      </div>
+                      {{-- ------------------------- start workshop ------------------------- --}}
+                      <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+
+                          <select class="form-control" name="workshop">
+                            <option value="">Pilih opsi Workshop</option>
+                            <option value="">Tidak</option>
+                            <option value="1">Workshop 1</option>
+                            <option value="2">Workshop 2</option>
+                            <option value="3">Workshop 3</option>
+                            <option value="4">Workshop 4</option>
+                            <option value="5">Workshop 5</option>
+                            <option value="6">Workshop 6</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    <div class="col col-lg-6 col-sm-12 col-md-12 col-12">
                       {{-- ------------------------- start jabatan ------------------------- --}}
                       <div class="form-group">
+                        <label for="jabatan" style="font-size: 18px">Data Instansi</label>
                         <div class="input-group input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-bold-up"></i></span>
                           </div>
-                          <input class="form-control" placeholder="Jabatan" type="text" name="jabatan"
-                            value="{{ old('jabatan') }}">
+                          <input class="form-control" id="jabatan" placeholder="Jabatan"
+                            type="text" name="jabatan" value="{{ old('jabatan') }}">
                         </div>
                       </div>
                       {{-- ------------------------- start instansi ------------------------- --}}
@@ -112,11 +158,9 @@
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
                       </div>
-
-                    </div>
-                    <div class="col col-lg-6 col-sm-12">
                       {{-- ------------------------- start email instansi ------------------------- --}}
                       <div class="form-group">
+
                         <div class="input-group input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -147,7 +191,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
-                          <input class="form-control" placeholder="Telp Intansi" type="tel"
+                          <input class="form-control" placeholder="Telp Intansi" type="number"
                             name="phone_instansi" value="{{ old('phone_instansi') }}">
                         </div>
                         @error('phone_instansi')
@@ -174,7 +218,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
-                          <input class="form-control" placeholder="No HP Pendatar" type="text"
+                          <input class="form-control" placeholder="No HP Pendatar" type="number"
                             name="no_hp_pendaftar" value="{{ old('no_hp_pendaftar') }}">
                         </div>
                         @error('no_hp_pendaftar')
@@ -182,35 +226,9 @@
                         @enderror
                       </div>
 
-                      {{-- ------------------------- start seminar------------------------- --}}
 
-                      <div class="form-group">
-                        <div class="input-group input-group-alternative mb-3">
 
-                          <select class="form-control" name="seminar" required>
-                            <option value="">Pilih opsi Seminar</option>
-                            <option value="1">Ya</option>
-                            <option value="0">Tidak</option>
-                          </select>
-                        </div>
-                      </div>
-                      {{-- ------------------------- start workshop ------------------------- --}}
-                      <div class="form-group">
-                        <div class="input-group input-group-alternative mb-3">
-
-                          <select class="form-control" name="workshop">
-                            <option value="">Pilih opsi Workshop</option>
-                            <option value="1">Workshop 1</option>
-                            <option value="2">Workshop 2</option>
-                            <option value="3">Workshop 3</option>
-                            <option value="4">Workshop 4</option>
-                            <option value="5">Workshop 5</option>
-                            <option value="6">Workshop 6</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="row my-4">
+                      {{-- <div class="row my-4">
                         <div class="col-12">
                           <div class="custom-control custom-control-alternative custom-checkbox">
                             <input class="custom-control-input" id="customCheckRegister"
@@ -221,7 +239,7 @@
                             </label>
                           </div>
                         </div>
-                      </div>
+                      </div> --}}
                       <div class="text-center">
                         <button type="submit" class="btn btn-primary mt-4">Daftar</button>
                       </div>

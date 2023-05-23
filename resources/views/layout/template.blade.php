@@ -20,15 +20,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    Argon Dashboard - Free Dashboard for Bootstrap 4 by Creative Tim
+    @yield('title')
   </title>
   <!-- Favicon -->
-  <link href="{{ asset('/') }}assets/img/brand/favicon.png" rel="icon" type="image/png">
+  <link href="{{ asset('/') }}assets/img/brand/arssi.png" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
   <link href="{{ asset('/') }}assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
-  <link href="{{ asset('/') }}assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css"
+  <link
+    href="{{ asset('/') }}assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css"
     rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('/') }}assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
@@ -44,8 +45,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand" href="../index.html">
-          <img src="../assets/img/brand/white.png" />
+        <a class="navbar-brand"  href="({{ url('/login') }})">
+          <img style="height:70px" src="{{ asset('/') }}assets/img/brand/arssi.png" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent"
@@ -57,8 +58,8 @@
           <div class="navbar-collapse-header d-md-none">
             <div class="row">
               <div class="col-6 collapse-brand">
-                <a href="../index.html">
-                  <img src="../assets/img/brand/blue.png">
+                <a href="{{ url('/login') }}">
+                  <img src="{{ asset('/') }}assets/img/brand/arssi.png">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -73,39 +74,62 @@
           </div>
           <!-- Navbar items -->
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="../index.html">
-                <i class="ni ni-planet"></i>
-                <span class="nav-link-inner--text">Dashboard</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="../examples/register.html">
-                <i class="ni ni-circle-08"></i>
-                <span class="nav-link-inner--text">Register</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="../examples/login.html">
-                <i class="ni ni-key-25"></i>
-                <span class="nav-link-inner--text">Login</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-icon" href="../examples/profile.html">
-                <i class="ni ni-single-02"></i>
-                <span class="nav-link-inner--text">Profile</span>
-              </a>
-            </li>
+            @if (Request::is('registrasi'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/registrasi') }}">
+                    <i class="ni ni-circle-08"></i>
+                    <span class="nav-link-inner--text">Register</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/login') }}">
+                    <i class="ni ni-key-25"></i>
+                    <span class="nav-link-inner--text">Login</span>
+                </a>
+                </li>
+            @elseif(Request::is('login'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/registrasi') }}">
+                    <i class="ni ni-circle-08"></i>
+                    <span class="nav-link-inner--text">Register</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/login') }}">
+                    <i class="ni ni-key-25"></i>
+                    <span class="nav-link-inner--text">Login</span>
+                </a>
+                </li>
+                @elseif(Request::is('forgot-password'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/registrasi') }}">
+                    <i class="ni ni-circle-08"></i>
+                    <span class="nav-link-inner--text">Register</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/login') }}">
+                    <i class="ni ni-key-25"></i>
+                    <span class="nav-link-inner--text">Login</span>
+                </a>
+                </li>
+            @elseif(Request::is('peserta'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
+                    <i class="ni ni-button-power"></i>
+                    <span class="nav-link-inner--text">Logout</span>
+                </a>
+                </li> @endif
           </ul>
-        </div>
+
+      </div>
       </div>
     </nav>
     @yield('content')
   </div>
   <!-- Footer -->
   <footer class="py-5">
-    <div class="container">
+  {{-- <div class="container">
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
@@ -132,7 +156,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> --}}
   </footer>
   </div>
   <!--   Core   -->
@@ -149,6 +173,6 @@
         application: "argon-dashboard-free"
       });
   </script>
-</body>
+  </body>
 
 </html>

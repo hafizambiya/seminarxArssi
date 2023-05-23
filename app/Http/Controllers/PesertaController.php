@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\peserta;
+use Illuminate\Http\Request;
+use App\Mail\RegistrasiBerhasil;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\StorepesertaRequest;
 use App\Http\Requests\UpdatepesertaRequest;
-use Illuminate\Http\Request;
 
 class PesertaController extends Controller
 {
@@ -201,10 +203,11 @@ class PesertaController extends Controller
 
                 'nama_p' => 'required',
                 'email_p' => 'required|email|unique:pesertas,email',
-                'password' => 'required',
+                'password' => 'required|confirmed',
                 'phone_p' => 'required',
                 'jabatan' => 'required',
                 'instansi' => 'required',
+
 
 
 
@@ -295,61 +298,13 @@ class PesertaController extends Controller
 
 
         $idpeserta = $id_prefix . $nomor_urut_string;
-        // dd($idpeserta);
 
-        // $seminar = $request->seminar;
-        // $workshop = $request->workshop;
-        $id_prefix_p = '';
-        $nomor_urut_p = 1;
-        $increment = 1000;
+        $idpesanan = $idpeserta . '_' . date('mdHis');
 
-        if ($seminar && !$workshop) {
-            $id_prefix_p = '1';
-        } elseif ($seminar && $workshop == 1) {
-            $id_prefix_p = '11';
-        } elseif ($seminar && $workshop == 2) {
-            $id_prefix_p = '12';
-        } elseif ($seminar && $workshop == 3) {
-            $id_prefix_p = '13';
-        } elseif ($seminar && $workshop == 4) {
-            $id_prefix_p = '14';
-        } elseif ($seminar && $workshop == 5) {
-            $id_prefix_p = '15';
-        } elseif ($seminar && $workshop == 6) {
-            $id_prefix_p = '16';
-        } elseif (!$seminar && $workshop == 1) {
-            $id_prefix_p = '01';
-        } elseif (!$seminar && $workshop == 2) {
-            $id_prefix_p = '02';
-        } elseif (!$seminar && $workshop == 3) {
-            $id_prefix_p = '03';
-        } elseif (!$seminar && $workshop == 4) {
-            $id_prefix_p = '04';
-        } elseif (!$seminar && $workshop == 5) {
-            $id_prefix_p = '05';
-        } elseif (!$seminar && $workshop == 6) {
-            $id_prefix_p = '06';
-        }
-
-        // mendapatkan nomor urut terakhir
-        $last_peserta_p = Peserta::where('idpeserta', 'like', $id_prefix . '%')
-            ->orderBy('idpeserta', 'desc')
-            ->first();
-
-
-
-        if ($last_peserta_p) {
-            $last_idpeserta = $last_peserta_p->idpeserta;
-            $nomor_urut_p = intval(substr($last_idpeserta, -3)) + 1;
-        }
-
-        $nomor_urut_string_p = str_pad($nomor_urut_p, 4, '0', STR_PAD_LEFT);
-
-        $idpeserta_p = $id_prefix_p . $nomor_urut_string_p + $increment;
 
         $peserta = new Peserta;
         $peserta->idpeserta = $idpeserta;
-        $peserta->no_peserta = $idpeserta_p;
+        $peserta->idpesanan = $idpesanan;
         $peserta->nama_peserta = $request->nama_p;
         $peserta->email = $request->email_p;
         $peserta->no_hp = $request->phone_p;
@@ -367,6 +322,7 @@ class PesertaController extends Controller
         $peserta->pembelian = $harga;
         $peserta->pelunasan = 0;
         $peserta->save();
-        return redirect('login')->with('msg', 'Berhasil menambahkan peserta');
+        Mail::to($peserta->email)->send(new RegistrasiBerhasil($peserta));
+        return redirect('login')->with('status', 'Peserta berhasil didafftarkan silahkan login untuk melanjutkan pembayaran');
     }
 }

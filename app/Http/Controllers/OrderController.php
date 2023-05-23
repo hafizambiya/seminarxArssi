@@ -11,7 +11,6 @@ class OrderController extends Controller
     {
         $order = $request->all();
 
-        // dd($request->all());
 
         /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
 composer require midtrans/midtrans-php
@@ -36,7 +35,7 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $request->idpeserta,
+                'order_id' => $request->idpesanan,
                 'gross_amount' => $request->pembelian,
 
             ),
@@ -58,12 +57,19 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture') {
-                $order = Peserta::where('idpeserta', $request->order_id)->first();
+                $order = Peserta::where('idpesanan', $request->order_id)->first();
                 // dd($order);
                 // $order->update(['pelunasan' => 1]);
                 $order->pelunasan = 1;
                 $order->save();
+                return view('main.peserta');
             }
         }
+    }
+
+    public function invoice()
+    {
+        // $order = Peserta::find($id);
+        return view('main.peserta');
     }
 }

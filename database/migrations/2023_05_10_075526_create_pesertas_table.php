@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             // $table->id();
+            $table->id();
             $table->string('idpeserta', 9);
-            $table->integer('no_peserta');
+            $table->string('idpesanan');
             $table->string('nama_peserta');
             $table->string('email')->unique();
             $table->char('no_hp');
@@ -30,6 +31,7 @@ return new class extends Migration
             $table->char('pembelian');
             $table->boolean('pelunasan');
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -1,7 +1,8 @@
  @extends('layout.template')
 
-
+ @section('title', 'Peserta-Dashboard')
  @section('content')
+   {{-- {{ dd($user->all()) }} --}}
    <div class="main-content">
 
      <!-- Header -->
@@ -24,39 +25,62 @@
                  seminar
                @endif
              </p>
-             <form action="{{ url('/checkout') }}" method="POST">
-               @csrf
-               <div class="form-group d-none">
-                 <label for="nama">nama peserta</label>
-                 <input type="text" class="form-control" class="nama"
-                   value="{{ $user->nama_peserta }}" name="nama">
-               </div>
-               <div class="form-group d-none">
-                 <label for="idpeserta">id peserta</label>
-                 <input type="text" class="form-control" class="idpeserta"
-                   value="{{ $user->idpeserta }}" name="idpeserta">
-               </div>
-               <div class="form-group d-none">
-                 <label for="email">email peserta</label>
-                 <input type="text" class="form-control" class="email" value="{{ $user->email }}"
-                   name="email">
-               </div>
-               <div class="form-group d-none">
-                 <label for="pembelian">pembayaran</label>
-                 <input type="text" class="form-control" value="{{ $user->pembelian }}"
-                   name="pembelian">
-               </div>
 
-               <div class="form-group d-none">
-                 <label for="pelunasan">Pelunasan</label>
-                 <input type="text" class="form-control" value="{{ $user->pelunasan }}"
-                   name="pelunasan">
+             <div class="container">
+               <div class="row">
+                 <div class="col col-lg-2 col-12 col-sm-12">
+                   @if ($user->pelunasan == 0)
+                     <form action="{{ url('/checkout') }}" method="POST">
+                       @csrf
+                       <div class="form-group d-none">
+                         <label for="nama">nama peserta</label>
+                         <input type="text" class="form-control" class="nama"
+                           value="{{ $user->nama_peserta }}" name="nama">
+                       </div>
+                       <div class="form-group d-none">
+                         <label for="idpesanan">id pesanan</label>
+                         <input type="text" class="form-control" class="idpesanan"
+                           value="{{ $user->idpesanan }}" name="idpesanan">
+                       </div>
+                       <div class="form-group d-none">
+                         <label for="email">email peserta</label>
+                         <input type="text" class="form-control" class="email"
+                           value="{{ $user->email }}" name="email">
+                       </div>
+                       <div class="form-group d-none">
+                         <label for="pembelian">pembayaran</label>
+                         <input type="text" class="form-control" value="{{ $user->pembelian }}"
+                           name="pembelian">
+                       </div>
+
+                       <div class="form-group d-none">
+                         <label for="pelunasan">Pelunasan</label>
+                         <input type="text" class="form-control" value="{{ $user->pelunasan }}"
+                           name="pelunasan">
+                       </div>
+
+
+                       <button type="submit" class="btn btn-info">Bayar Disini</button>
+
+                     </form>
+                   @else
+                     <button type="button" class="btn btn-primary btn-success">Payment Paid </button>
+                   @endif
+
+                 </div>
+                 <div class="col col-lg-3 col-12 col-sm-12 ">
+                   @if ($user->pelunasan == 0)
+                     <button type="button" class="btn btn-primary btn-warning">Menunggu Pembayaran
+                     </button>
+                   @endif
+
+
+                 </div>
                </div>
+             </div>
 
 
-               <button type="submit" class="btn btn-success">Bayar Disini</button>
 
-             </form>
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
            </div>
          </div>
@@ -66,13 +90,14 @@
      <div class="container-fluid mt--9">
        <div class="row">
          <div class="col-xl-4 order-xl-2 mb-0 mb-xl-0">
-           <div class="card card-profile shadow">
+           <div class="card card-profile shadow bg-warning">
              <div class="row justify-content-center">
                <div class="col-lg-3 order-lg-2">
                  <div class="card-profile-image">
                    <a href="#">
-                     <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=ambiya"
-                       class="rounded-circle">
+                     <img
+                       src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}"
+                       class="rounded-circle bg-warning">
                    </a>
                  </div>
                </div>

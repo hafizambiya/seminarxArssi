@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class peserta extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, CanResetPassword;
     protected $table = 'pesertas';
-    protected $primaryKey = 'no_peserta';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nama_peserta',
@@ -28,7 +29,7 @@ class peserta extends Authenticatable
         'seminar',
         'workshop',
         'password',
-        'idpeserta'
+        'idpesanan'
     ];
 
     public static function getWorkshop($id)
