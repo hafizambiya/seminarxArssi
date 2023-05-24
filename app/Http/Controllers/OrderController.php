@@ -45,9 +45,21 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
             ),
         );
 
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        // dd($snapToken);
-        return view('main.checkout', compact('snapToken', 'order'));
+        // dd($request->snaptoken);
+
+        if (!empty($request->snaptoken)) {
+            $snapToken = $request->snaptoken;
+            return view('main.checkout', compact('snapToken', 'order'));
+        } else {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+            $peserta = Peserta::where('idpesanan', $request->idpesanan)->first();
+            // dd($peserta->snaptoken);
+
+            $peserta->snaptoken = $snapToken;
+            $peserta->save();
+            return view('main.checkout', compact('snapToken', 'order'));
+        }
     }
 
     public function callback(Request $request)

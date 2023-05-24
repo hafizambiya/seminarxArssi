@@ -38,6 +38,11 @@
                            value="{{ $user->nama_peserta }}" name="nama">
                        </div>
                        <div class="form-group d-none">
+                         <label for="nama">snapToken</label>
+                         <input type="text" class="form-control" class="nama"
+                           value="{{ $user->snaptoken }}" name="snaptoken">
+                       </div>
+                       <div class="form-group d-none">
                          <label for="idpesanan">id pesanan</label>
                          <input type="text" class="form-control" class="idpesanan"
                            value="{{ $user->idpesanan }}" name="idpesanan">

@@ -130,6 +130,19 @@
                     <span class="nav-link-inner--text">Login</span>
                 </a>
                 </li>
+                @elseif(Request::is('checkout'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/peserta') }}">
+                    <i class="ni ni-circle-08"></i>
+                    <span class="nav-link-inner--text">Dashboard</span>
+                </a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
+                    <i class="ni ni-button-power"></i>
+                    <span class="nav-link-inner--text">Logout</span>
+                </a>
+                </li>
             @elseif(Request::is('peserta'))
                 <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
