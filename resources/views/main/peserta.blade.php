@@ -14,7 +14,7 @@
        <div class="container-fluid d-flex align-items-center">
          <div class="row">
            <div class="col-lg-7 col-md-10">
-             <h1 class="display-2 text-white">Hello {{ $user->nama_peserta }}</h1>
+             <h1 class="display-2 text-white mt-5">Hello {{ $user->nama_peserta }}</h1>
              <p class="text-white mt-0 mb-5">Selamat datang pada laman peserta Seminar Nasional X dan
                Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
                anda saat ini terdaftar mengikuti kegiatan @if ($user->seminar && $user->workshop)
@@ -26,9 +26,9 @@
                @endif
              </p>
 
-             <div class="container">
+             <div class="container text-center">
                <div class="row">
-                 <div class="col col-lg-2 col-12 col-sm-12">
+                 <div class="col col-lg-2 col-12 col-sm-12 mr-3 mb-3">
                    @if ($user->pelunasan == 0)
                      <form action="{{ url('/checkout') }}" method="POST">
                        @csrf
@@ -87,17 +87,17 @@
        </div>
      </div>
      <!-- Page content -->
-     <div class="container-fluid mt--9">
+     <div class="container-fluid container-kotak ">
        <div class="row">
          <div class="col-xl-4 order-xl-2 mb-0 mb-xl-0">
-           <div class="card card-profile shadow bg-warning">
+           <div class="card card-profile shadow">
              <div class="row justify-content-center">
                <div class="col-lg-3 order-lg-2">
                  <div class="card-profile-image">
-                   <a href="#">
+                   <a href="#" class="bg-warning">
                      <img
                        src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}"
-                       class="rounded-circle bg-warning">
+                       class="rounded-circle ">
                    </a>
                  </div>
                </div>

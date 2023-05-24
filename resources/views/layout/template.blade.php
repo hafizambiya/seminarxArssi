@@ -33,6 +33,23 @@
     rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('/') }}assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+  <style>
+  /* Untuk lebar halaman di atas 1080px */
+  @media (min-width: 1080px) {
+    .container-kotak {
+      margin-top: -9rem;
+      /* background-color:red; */
+    }
+  }
+
+  /* Untuk lebar halaman di bawah 600px */
+  @media (max-width: 600px) {
+    .container-kotak {
+      margin-top: -6rem;
+    }
+  }
+</style>
+
 
   <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
   <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
