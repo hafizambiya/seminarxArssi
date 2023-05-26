@@ -47,8 +47,8 @@ return [
 
         'ses' => [
             'transport' => 'ses',
-            'key' => env(''),
-            'secret' => env(''),
+            'key' => env(' '),
+            'secret' => env(' '),
             'region' => env('us-east-1'),
         ],
 
