@@ -142,6 +142,7 @@ class PesertaController extends Controller
         $idpeserta_p = $id_prefix_p . $nomor_urut_string_p + $increment;
 
         $peserta = new Peserta;
+        $peserta->role = 'user';
         $peserta->idpeserta = $idpeserta;
         $peserta->no_peserta = $idpeserta_p;
         $peserta->nama_peserta = $request->nama_p;

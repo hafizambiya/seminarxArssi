@@ -32,7 +32,7 @@ return new class extends Migration
             $table->boolean('pelunasan');
             $table->string('password');
             $table->string('snaptoken')->nullable();
-            $table->tinyInteger("role")->default(0);
+            $table->string("role")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
