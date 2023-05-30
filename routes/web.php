@@ -26,7 +26,7 @@ use App\Http\Controllers\RegisteredController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::resource('registrasi', PesertaController::class);
 Route::resource('peserta', RegisteredController::class)->middleware('auth');
@@ -95,3 +95,7 @@ Route::post('/reset-password', function (Request $request) {
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+    // Definisikan rute-rute khusus admin di sini
+});

@@ -16,6 +16,7 @@ class CekPeserta
      */
     public function handle(Request $request, Closure $next, $rules): Response
     {
+
         if (!Auth::check()) {
             return redirect('login');
         }
