@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('nama_pendaftar');
             $table->string('no_hp_pendaftar');
             $table->boolean('seminar')->default(false);
-            $table->enum('workshop', ['1', '2', '3', '4', '5', '6'])->nullable();
+            $table->integer('workshop')->nullable();
             $table->char('pembelian');
             $table->enum('pelunasan', [0, 'lunas', 'free', 'sponsor']);
             $table->string('password');

@@ -26,6 +26,65 @@
 
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
            </div>
+           <div class="col-lg-3">
+             <h2 class="text-white">Jumlah Pendaftar </h2>
+             <table class="table table-striped">
+               <thead>
+                 <tr class="text-white">
+                   <th>Jenis Peserta</th>
+                   <th>Seminar</th>
+                   <th>Workshop</th>
+                   <th>S & W</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Seminar</td>
+                   <td style="padding: 1px;">{{ $s }}</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $s }}</td>
+                 </tr>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 1</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w1 }}</td>
+                   <td style="padding: 1px;">{{ $sw1 }}</td>
+                 </tr>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 2</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w2 }}</td>
+                   <td style="padding: 1px;">{{ $sw2 }}</td>
+                 </tr>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 3</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w3 }}</td>
+                   <td style="padding: 1px;">{{ $sw3 }}</td>
+                 </tr>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 4</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w4 }}</td>
+                   <td style="padding: 1px;">{{ $sw4 }}</td>
+                 </tr class="text-white">
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 5</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w5 }}</td>
+                   <td style="padding: 1px;">{{ $sw5 }}</td>
+                 </tr>
+                 <tr class="text-white">
+                   <td style="padding: 1px;">Workshop 6</td>
+                   <td style="padding: 1px;">0</td>
+                   <td style="padding: 1px;">{{ $w6 }}</td>
+                   <td style="padding: 1px;">{{ $sw6 }}</td>
+                 </tr>
+               </tbody>
+
+             </table>
+
+           </div>
          </div>
        </div>
      </div>
@@ -43,7 +102,7 @@
              </div>
              <div class="card-body">
                <div class="table-responsive">
-                 <table class="table table-striped">
+                 <table id="Peserta" class="table table-striped display">
                    <thead>
                      <tr style="padding: 5px;" class="bg-info">
                        <th style="padding: 5px" scope="col">#</th>
@@ -62,23 +121,24 @@
                      </tr>
                    </thead>
                    <tbody>
+
                      @foreach ($pesertas as $index => $peserta)
                        <tr>
-                         <td style="padding: 0px">{{ $index + 1 }}</td>
+                         <td style="padding: 5px">{{ $index + 1 }}</td>
                          <td style="padding: 5px"><a href="admin/{{ $peserta->idpeserta }}">
                              <button type="button" class="btn btn-sm btn-info"><i
                                  class="fas fa-plus-circle" style="width: 20px"></i> edit</button></a></td>
-                         <td style="padding: 0px" class="text-center">{{ $peserta->pelunasan }}</td>
-                         <td style="padding: 0px">
+                         <td style="padding: 5px" class="text-center">{{ $peserta->pelunasan }}</td>
+                         <td style="padding: 5px">
                            {{ $peserta->nama_peserta }}</td>
-                         <td style="padding: 0px">{{ $peserta->instansi }}</td>
-                         <td style="padding: 0px">{{ $peserta->jabatan }}</td>
-                         <td style="padding: 0px">{{ $peserta->email }}</td>
-                         <td style="padding: 0px">{{ $peserta->no_hp }}</td>
-                         <td style="padding: 0px">{{ $peserta->nama_pendaftar }}</td>
-                         <td style="padding: 0px">{{ $peserta->no_hp_pendaftar }}</td>
-                         <td style="padding: 0px">{{ $peserta->seminar }}</td>
-                         <td style="padding: 0px">{{ $peserta->workshop }}</td>
+                         <td style="padding: 5px">{{ $peserta->instansi }}</td>
+                         <td style="padding: 5px">{{ $peserta->jabatan }}</td>
+                         <td style="padding: 5px">{{ $peserta->email }}</td>
+                         <td style="padding: 5px">{{ $peserta->no_hp }}</td>
+                         <td style="padding: 5px">{{ $peserta->nama_pendaftar }}</td>
+                         <td style="padding: 5px">{{ $peserta->no_hp_pendaftar }}</td>
+                         <td style="padding: 5px">{{ $peserta->seminar }}</td>
+                         <td style="padding: 5px">{{ $peserta->workshop }}</td>
 
                        </tr>
                      @endforeach
@@ -91,4 +151,13 @@
        </div>
      </div>
    </div>
+
+
+
+   <script>
+     $(document).ready(function() {
+       $('#Peserta').DataTable();
+
+     });
+   </script>
  @endsection

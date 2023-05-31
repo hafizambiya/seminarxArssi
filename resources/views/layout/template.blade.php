@@ -1,18 +1,3 @@
-<!--
-
-=========================================================
-* Argon Dashboard - v1.1.2
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +7,8 @@
   <title>
     @yield('title')
   </title>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <!-- Favicon -->
   <link href="{{ asset('/') }}assets/img/brand/arssi.png" rel="icon" type="image/png">
   <!-- Fonts -->
@@ -34,11 +21,10 @@
   <!-- CSS Files -->
   <link href="{{ asset('/') }}assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
   <link href="{{ asset('/') }}assets/css/costum.css" rel="stylesheet" />
-  <style>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
 
   <style>
-
 
 
   /* Untuk lebar halaman di atas 1080px */
@@ -150,7 +136,14 @@
                     <span class="nav-link-inner--text">Logout</span>
                 </a>
                 </li>
-            @elseif(Request::is('peserta'))
+                 @elseif(Request::is('peserta'))
+                <li class="nav-item">
+                <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
+                    <i class="ni ni-button-power"></i>
+                    <span class="nav-link-inner--text">Logout</span>
+                </a>
+                </li>
+                @elseif(Request::is('admin'))
                 <li class="nav-item">
                 <a class="nav-link nav-link-icon" href="{{ url('/logout') }}">
                     <i class="ni ni-button-power"></i>
@@ -166,38 +159,11 @@
   </div>
   <!-- Footer -->
   <footer class="py-5">
-  {{-- <div class="container">
-      <div class="row align-items-center justify-content-xl-between">
-        <div class="col-xl-6">
-          <div class="copyright text-center text-xl-left text-muted">
-            &copy; 2018 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
-              target="_blank">Creative Tim</a>
-          </div>
-        </div>
-        <div class="col-xl-6">
-          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
-                Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
-                class="nav-link" target="_blank">MIT License</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> --}}
+
   </footer>
   </div>
   <!--   Core   -->
-  <script src="{{ asset('/') }}assets/js/plugins/jquery/dist/jquery.min.js"></script>
+  {{-- <script src="{{ asset('/') }}assets/js/plugins/jquery/dist/jquery.min.js"></script> --}}
   <script src="{{ asset('/') }}assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
@@ -210,6 +176,7 @@
         application: "argon-dashboard-free"
       });
   </script>
+
   </body>
 
 </html>

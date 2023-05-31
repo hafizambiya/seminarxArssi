@@ -68,8 +68,8 @@
                        <button type="submit" class="btn btn-info">Bayar Disini</button>
 
                      </form>
-                   @else
-                     <button type="button" class="btn btn-primary btn-success">Payment Paid </button>
+                   @elseif($user->pelunasan = 'sponsor')
+                     <button type="button" class="btn btn-primary btn-success">Sponsor </button>
                    @endif
 
                  </div>

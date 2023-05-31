@@ -5,13 +5,98 @@ namespace App\Http\Controllers;
 use App\Models\Peserta;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdatepesertaRequest;
+use Illuminate\Support\Facades\DB;
 
 class Admin extends Controller
 {
     public function index()
     {
+        $s = Peserta::where('seminar', true)
+            ->where('workshop', null)
+            ->count();
+
+
+        $w1 = Peserta::where('seminar', false)
+            ->where('workshop', '1')
+            ->count();
+
+
+        $w2 = Peserta::where('seminar', false)
+            ->where('workshop', '2')
+            ->count();
+
+        $w3 = Peserta::where('seminar', false)
+            ->where('workshop', '3')
+            ->count();
+
+
+        $w4 = Peserta::where('seminar', false)
+            ->where('workshop', '4')
+            ->count();
+
+        $w5 = Peserta::where('seminar', false)
+            ->where('workshop', '5')
+            ->count();
+
+
+        $w6 = Peserta::where('seminar', false)
+            ->where('workshop', '6')
+            ->count();
+
+        $sw1 = Peserta::where('seminar', true)
+            ->where('workshop', '1')
+            ->count();
+
+
+        $sw2 = Peserta::where('seminar', true)
+            ->where('workshop', '2')
+            ->count();
+
+        $sw3 = Peserta::where('seminar', true)
+            ->where('workshop', '3')
+            ->count();
+
+
+        $sw4 = Peserta::where('seminar', true)
+            ->where('workshop', '4')
+            ->count();
+
+        $sw5 = Peserta::where('seminar', true)
+            ->where('workshop', '5')
+            ->count();
+
+
+        $sw6 = Peserta::where('seminar', true)
+            ->where('workshop', '6')
+            ->count();
+
+
+
+
+        // Lanjutkan perhitungan untuk workshop 3 sampai 6
+
         $peserta = Peserta::all();
-        return view('main.admin')->with(['pesertas' => $peserta]);
+        return view('main.admin')->with([
+            'pesertas' => $peserta,
+            's' => $s,
+            'w1' => $w1,
+            'w2' => $w2,
+            'w3' => $w3,
+            'w4' => $w4,
+            'w3' => $w3,
+            'w4' => $w4,
+            'w5' => $w5,
+            'w6' => $w6,
+            'sw1' => $sw1,
+            'sw2' => $sw2,
+            'sw3' => $sw3,
+            'sw4' => $sw4,
+            'sw3' => $sw3,
+            'sw4' => $sw4,
+            'sw5' => $sw5,
+            'sw6' => $sw6,
+
+        ]);
     }
 
     public function show(peserta $peserta, $idpeserta)

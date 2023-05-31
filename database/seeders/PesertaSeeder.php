@@ -35,7 +35,7 @@ class PesertaSeeder extends Seeder
                 'nama_pendaftar' => $faker->name,
                 'no_hp_pendaftar' => $faker->phoneNumber,
                 'seminar' => $faker->boolean,
-                'workshop' => 1,
+                'workshop' => $faker->numberBetween(0, 6),
                 'pembelian' => $faker->sentence,
                 'pelunasan' => '0',
                 'password' => Hash::make('password'),
