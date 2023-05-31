@@ -72,7 +72,7 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
                 $order = Peserta::where('idpesanan', $request->order_id)->first();
                 // dd($order);
                 // $order->update(['pelunasan' => 1]);
-                $order->pelunasan = 1;
+                $order->pelunasan = 'lunas';
                 $order->save();
                 return view('main.peserta');
             }

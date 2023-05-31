@@ -47,10 +47,10 @@ class peserta extends Authenticatable
         return isset($workshops[$id]) ? $workshops[$id] : '';
     }
 
-    protected function role(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value) => ["user", "admin"][$value],
-        );
-    }
+    // protected function role(): Attribute
+    // {
+    //     return new Attribute(
+    //         get: fn ($value) => ["user", "admin"][$value],
+    //     );
+    // }
 }

@@ -22,7 +22,7 @@ class CekPeserta
         }
 
         $user = Auth::user();
-        if ($user->level == $rules) {
+        if ($user->role == $rules) {
             return $next($request);
         }
 

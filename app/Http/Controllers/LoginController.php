@@ -26,8 +26,13 @@ class LoginController extends Controller
         $remember = $request->has('remember');
 
         $validasi = Auth::attempt($data, $remember);
+        $peserta = Auth::user();
         if ($validasi) {
-            return redirect()->intended('peserta');
+            if ($peserta->role == "admin") {
+                return redirect()->intended('admin');
+            } elseif ($peserta->role == "user") {
+                return redirect()->intended('peserta');
+            }
         } else {
             return redirect()->route('login')->with('failed', 'email atau password salah');
         }

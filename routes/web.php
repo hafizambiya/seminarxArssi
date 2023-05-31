@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\RegisteredController;
@@ -24,12 +25,24 @@ use App\Http\Controllers\RegisteredController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
 Route::resource('registrasi', PesertaController::class);
-Route::resource('peserta', RegisteredController::class)->middleware('auth');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['CekPeserta:user']], function () {
+        Route::resource('peserta', RegisteredController::class);
+    });
+    Route::group(['middleware' => ['CekPeserta:admin']], function () {
+        // Route::resource('peserta', RegisteredController::class);
+        Route::resource('admin', Admin::class);
+        Route::get('admin/{id}', [PesertaController::class, 'edit']);
+    });
+});
+
+// Route::resource('peserta', RegisteredController::class)->middleware('auth');
 // Route::controller(LoginController::class)->group(function () {
 //     Route::get('login', 'index')->name('login');
 // });
@@ -94,8 +107,8 @@ Route::post('/reset-password', function (Request $request) {
 
 // Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
-    // Definisikan rute-rute khusus admin di sini
-});
+// Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+//     // Definisikan rute-rute khusus admin di sini
+// });

@@ -32,9 +32,9 @@ class PesertaFactory extends Factory
             'nama_pendaftar' => 'Admin Registrar',
             'no_hp_pendaftar' => '081234567891',
             'seminar' => false,
-            'workshop' => null,
+            'workshop' => 1,
             'pembelian' => 'Dummy Purchase',
-            'pelunasan' => false,
+            'pelunasan' => 'lunas',
             'password' => Hash::make('adminpassword'),
             'snaptoken' => null,
             'role' => 'admin', // Role admin

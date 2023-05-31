@@ -142,7 +142,7 @@ class PesertaController extends Controller
         $idpeserta_p = $id_prefix_p . $nomor_urut_string_p + $increment;
 
         $peserta = new Peserta;
-        $peserta->role = 'user';
+
         $peserta->idpeserta = $idpeserta;
         $peserta->no_peserta = $idpeserta_p;
         $peserta->nama_peserta = $request->nama_p;
@@ -176,9 +176,8 @@ class PesertaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(peserta $peserta)
+    public function edit($id)
     {
-        //
     }
 
     /**
@@ -304,6 +303,7 @@ class PesertaController extends Controller
 
 
         $peserta = new Peserta;
+        $peserta->role = 'user';
         $peserta->idpeserta = $idpeserta;
         $peserta->idpesanan = $idpesanan;
         $peserta->nama_peserta = $request->nama_p;
@@ -321,7 +321,7 @@ class PesertaController extends Controller
         $peserta->workshop = $request->workshop;
         $peserta->password = bcrypt($request->password);
         $peserta->pembelian = $harga;
-        $peserta->pelunasan = 0;
+        $peserta->pelunasan = "0";
         $peserta->save();
         Mail::to($peserta->email)->send(new RegistrasiBerhasil($peserta));
         return redirect('login')->with('status', 'Peserta berhasil didafftarkan silahkan login untuk melanjutkan pembayaran');
