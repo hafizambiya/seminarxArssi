@@ -33,7 +33,14 @@
     rel="stylesheet" />
   <!-- CSS Files -->
   <link href="{{ asset('/') }}assets/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+  <link href="{{ asset('/') }}assets/css/costum.css" rel="stylesheet" />
   <style>
+
+
+  <style>
+
+
+
   /* Untuk lebar halaman di atas 1080px */
   @media (min-width: 1080px) {
     .container-kotak {

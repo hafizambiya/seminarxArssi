@@ -45,39 +45,40 @@
                <div class="table-responsive">
                  <table class="table table-striped">
                    <thead>
-                     <tr>
-                       <th scope="col">#</th>
-                       <th scope="col">#</th>
-                       <th scope="col">Pembayaran</th>
-                       <th scope="col">Nama</th>
-                       <th scope="col">Instansi</th>
-                       <th scope="col">Jabatan</th>
-                       <th scope="col">Email</th>
-                       <th scope="col">No Telp</th>
-                       <th scope="col">Pendaftar</th>
-                       <th scope="col">No Telp Pendaftar</th>
-                       <th scope="col">Seminar</th>
-                       <th scope="col">Workshop</th>
+                     <tr style="padding: 5px;" class="bg-info">
+                       <th style="padding: 5px" scope="col">#</th>
+                       <th style="padding: 5px" scope="col">#</th>
+                       <th style="padding: 5px 10px" scope="col">Pembayaran</th>
+                       <th style="padding: 5px; white-space:normal; width:80px" scope="col">Nama</th>
+                       <th style="padding: 5px" scope="col">Instansi</th>
+                       <th style="padding: 5px" scope="col">Jabatan</th>
+                       <th style="padding: 5px" scope="col">Email</th>
+                       <th style="padding: 5px" scope="col">No Telp</th>
+                       <th style="padding: 5px" scope="col">Pendaftar</th>
+                       <th style="padding: 5px" scope="col">No Telp Pendaftar</th>
+                       <th style="padding: 5px" scope="col">Seminar</th>
+                       <th style="padding: 5px" scope="col">Workshop</th>
 
                      </tr>
                    </thead>
                    <tbody>
                      @foreach ($pesertas as $index => $peserta)
                        <tr>
-                         <td>{{ $index + 1 }}</td>
-                         <td><a href="admin/{{ $peserta->idpeserta }}">
+                         <td style="padding: 0px">{{ $index + 1 }}</td>
+                         <td style="padding: 5px"><a href="admin/{{ $peserta->idpeserta }}">
                              <button type="button" class="btn btn-sm btn-info"><i
                                  class="fas fa-plus-circle" style="width: 20px"></i> edit</button></a></td>
-                         <td>{{ $peserta->pelunasan }}</td>
-                         <td>{{ $peserta->nama_peserta }}</td>
-                         <td>{{ $peserta->instansi }}</td>
-                         <td>{{ $peserta->jabatan }}</td>
-                         <td>{{ $peserta->email }}</td>
-                         <td>{{ $peserta->no_hp }}</td>
-                         <td>{{ $peserta->nama_pendaftar }}</td>
-                         <td>{{ $peserta->no_hp_pendaftar }}</td>
-                         <td>{{ $peserta->seminar }}</td>
-                         <td>{{ $peserta->workshop }}</td>
+                         <td style="padding: 0px" class="text-center">{{ $peserta->pelunasan }}</td>
+                         <td style="padding: 0px">
+                           {{ $peserta->nama_peserta }}</td>
+                         <td style="padding: 0px">{{ $peserta->instansi }}</td>
+                         <td style="padding: 0px">{{ $peserta->jabatan }}</td>
+                         <td style="padding: 0px">{{ $peserta->email }}</td>
+                         <td style="padding: 0px">{{ $peserta->no_hp }}</td>
+                         <td style="padding: 0px">{{ $peserta->nama_pendaftar }}</td>
+                         <td style="padding: 0px">{{ $peserta->no_hp_pendaftar }}</td>
+                         <td style="padding: 0px">{{ $peserta->seminar }}</td>
+                         <td style="padding: 0px">{{ $peserta->workshop }}</td>
 
                        </tr>
                      @endforeach
