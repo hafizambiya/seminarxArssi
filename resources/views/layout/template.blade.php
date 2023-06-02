@@ -55,8 +55,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand"  href="({{ url('/login') }})">
+        <a class="navbar-brand"  href="">
           <img style="height:70px" src="{{ asset('/') }}assets/img/brand/arssi.png" />
+          <h2 class="logo-arssi">Asosiasi Rumah Sakit Swasta Indonesia</h2>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
           data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent"
@@ -158,7 +159,7 @@
     @yield('content')
   </div>
   <!-- Footer -->
-  <footer class="py-5">
+  <footer class="py-3">
 
   </footer>
   </div>

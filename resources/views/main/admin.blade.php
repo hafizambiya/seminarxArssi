@@ -11,23 +11,20 @@
        <!-- Mask -->
        <span class="mask bg-gradient-default opacity-8"></span>
        <!-- Header container -->
-       <div class="container-fluid d-flex align-items-center">
+       <div class="container-fluid d-flex align-items-center admin-tinggi">
          <div class="row">
-           <div class="col-lg-7 col-md-10">
+           <div class="col-lg-7 col-md-10 col-12">
              <h1 class="display-2 text-white mt-1">Hello Admin</h1>
              <p class="text-white mt-0 mb-1">Selamat datang pada laman Admin Seminar Nasional X dan
                Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
                anda saat ini terdaftar mengikuti kegiatan
              </p>
 
-
-
-
-
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
            </div>
-           <div class="col-lg-3">
-             <h2 class="text-white">Jumlah Pendaftar </h2>
+
+           <div class="col-lg-4 col-7 col-md-7 text-center">
+             <h2 class="text-white" style="width:200px">Jumlah Pendaftar </h2>
              <table class="table table-striped">
                <thead>
                  <tr class="text-white">
@@ -42,7 +39,7 @@
                    <td style="padding: 1px;">Seminar</td>
                    <td style="padding: 1px;">{{ $s }}</td>
                    <td style="padding: 1px;">0</td>
-                   <td style="padding: 1px;">{{ $s }}</td>
+                   <td style="padding: 1px;">0</td>
                  </tr>
                  <tr class="text-white">
                    <td style="padding: 1px;">Workshop 1</td>
@@ -85,6 +82,7 @@
              </table>
 
            </div>
+
          </div>
        </div>
      </div>

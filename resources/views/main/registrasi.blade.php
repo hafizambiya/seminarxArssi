@@ -3,24 +3,26 @@
 
 @section('title', 'Registrasi')
 @section('content')
-  <div class="header bg-gradient-primary py-7 py-lg-8">
+  <div class="header  py-7 py-lg-8"
+    style="min-height: 300px; background-image: url(../assets/img/theme/seminar.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-default opacity-8"></span>
     <div class="container">
-      <div class="header-body text-center mb-4 mt-3">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 col-md-6">
-            <h1 class="text-white">Pendaftaran Seminar Nasional ARSSI X dan Healthcare Expo VIII</h1>
-            <p class="text-lead text-light">Use these awesome forms to login or create new account in
-              your project for free.</p>
-          </div>
+      <div class="header-body text-center mb-4 mt-1"></div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-8 text-center batas-bawah">
+          <h1 class="text-white font-hp">Pendaftaran Seminar Nasional ARSSI X dan Healthcare Expo VIII</h1>
+
         </div>
       </div>
     </div>
-    <div class="separator separator-bottom separator-skew zindex-100">
-      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
-        xmlns="http://www.w3.org/2000/svg">
-        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+      xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
   </div>
   <!-- Page content -->
   <div class="container mt--8 pb-5">
@@ -73,7 +75,11 @@
                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                           </div>
                           <input class="form-control" placeholder="Password" type="password"
-                            name="password" value="{{ old('password') }}">
+                            name="password" value="{{ old('password') }}" id="passwordInput">
+                          <div class="input-group-append">
+                            <span class="input-group-text" id="togglePassword" style="cursor: pointer;"><i
+                                class="fa fa-eye-slash"></i></span>
+                          </div>
                         </div>
                         @error('password')
                           <p class="text-danger">{{ $message }}</p>
@@ -241,7 +247,7 @@
                         </div>
                       </div> --}}
                       <div class="text-center">
-                        <button type="submit" class="btn btn-primary mt-4">Daftar</button>
+                        <button type="submit" class="btn btn-info mt-4">Daftar</button>
                       </div>
 
                     </div>
@@ -257,4 +263,16 @@
         </div>
       </div>
     </div>
+
+    <script>
+      const passwordInput = document.getElementById('passwordInput');
+      const togglePassword = document.getElementById('togglePassword');
+
+      togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        togglePassword.innerHTML = type === 'password' ? '<i class="fa fa-eye-slash"></i>' :
+          '<i class="fa fa-eye"></i>';
+      });
+    </script>
   @endsection

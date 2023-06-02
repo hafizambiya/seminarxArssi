@@ -14,6 +14,7 @@
        <div class="container-fluid d-flex align-items-center">
          <div class="row">
            <div class="col-lg-7 col-md-10">
+             {{-- {{ dd($user->pelunasan) }} --}}
              <h1 class="display-2 text-white mt-5">Hello {{ $user->nama_peserta }}</h1>
              <p class="text-white mt-0 mb-5">Selamat datang pada laman peserta Seminar Nasional X dan
                Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
@@ -68,9 +69,11 @@
                        <button type="submit" class="btn btn-info">Bayar Disini</button>
 
                      </form>
-                   @elseif($user->pelunasan = 'sponsor')
-                     <button type="button" class="btn btn-primary btn-success">Sponsor </button>
+                   @elseif($user->pelunasan)
+                     <button type="button" class="btn btn-primary btn-success">{{ $user->pelunasan }}
+                     </button>
                    @endif
+
 
                  </div>
                  <div class="col col-lg-3 col-12 col-sm-12 ">
@@ -238,9 +241,9 @@
                          <label class="form-control-label" for="input-country">Status</label>
                          <input type="text" id="input-country"
                            class="form-control form-control-alternative" placeholder="Country"
-                           value="@if ($user->pelunasan) lunas
+                           value="@if ($user->pelunasan == 0) Belum lunas
                            @else
-                               belum lunas @endif">
+                               {{ $user->pelunasan }} @endif">
                        </div>
                      </div>
 

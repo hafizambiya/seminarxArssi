@@ -1,14 +1,59 @@
-/*
-  .nama-kolom {
-    width: 50px;
-    overflow-x: auto;
-  } */
-/* .table-container {
-    overflow-x: auto;
+
+@media(max-width:500px){
+.admin-tinggi{
+margin-top: 110px;
+margin-bottom: 120px;
   }
 
-  .table-striped th.nama-kolom,
-  .table-striped td.nama-kolom {
-    width: 100px;
-    white-space: nowrap;
-  } */
+  .batas-bawah{
+    margin-bottom: 60px;
+  }
+  .font-hp{
+    font-size: 16px;
+  }
+}
+
+
+@media(max-width:850px){
+.admin-tinggi{
+margin-top: 110px;
+margin-bottom: 120px;
+  }
+
+  .batas-bawah{
+    margin-bottom: 50px;
+  }
+
+  .logo-arssi{
+        display: inline;
+        font-size: 16px;
+        color: aliceblue;
+        margin-left: 10px;
+    }
+}
+
+@media(min-width:850px){
+    .logo-arssi{
+        display: inline;
+        font-size: 20px;
+        color: aliceblue;
+        margin-left: 10px;
+    }
+}
+
+@media(max-width:500px){
+.admin-tinggi{
+margin-top: 110px;
+margin-bottom: 120px;
+  }
+
+  .batas-bawah{
+    margin-bottom: 60px;
+  }
+  .font-hp{
+    font-size: 16px;
+  }
+  .logo-arssi{
+        display: none;
+    }
+}

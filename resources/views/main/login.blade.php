@@ -5,14 +5,19 @@
  @section('content')
 
    <!-- Header -->
-   <div class="header bg-gradient-primary py-7 py-lg-8">
+   <div class="header  py-7 py-lg-8"
+     style="min-height: 300px; background-image: url(../assets/img/theme/seminar.jpg); background-size: cover; background-position: center top;">
+     <!-- Mask -->
+     <span class="mask bg-gradient-default opacity-8"></span>
+
      <div class="container">
        <div class="header-body text-center mb-2">
          <div class="row justify-content-center">
-           <div class="col-lg-5 col-md-6">
-             <h1 class="text-white">Welcome!</h1>
-             <p class="text-lead text-light">Use these awesome forms to login or create new account in your
-               project for free.</p>
+
+
+           <div class="col-lg-5 col-md-8 batas-bawah">
+             <h1 class="text-white">Selamat Datang Peserta Seminar Nasional X ARSSI</h1>
+             <p class="text-lead text-light">Hotel The RitzCalton, Kuningan Jakarta, 26-28 Juli 2023 </p>
              @if ($message = Session::get('failed'))
                <p class="text-danger bg-light">{{ $message }}
                </p>
@@ -40,7 +45,31 @@
    <!-- Page content -->
    <div class="container mt--8 pb-5">
      <div class="row justify-content-center">
-       <div class="col-lg-5 col-md-7">
+       <div class="col-lg-5 col-md-8 mb-2">
+         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+           <ol class="carousel-indicators">
+             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+           </ol>
+           <div class="carousel-inner">
+             <div class="carousel-item active " data-interval="3000">
+               <img src="{{ asset('/') }}assets/img/carousel/1.jpg" class="d-block w-100 rounded"
+                 alt="...">
+             </div>
+             <div class="carousel-item" data-interval="3000">
+               <img src="{{ asset('/') }}assets/img/carousel/3.jpg" class="d-block w-100 rounded"
+                 alt="...">
+             </div>
+             <div class="carousel-item" data-interval="3000">
+               <img src="{{ asset('/') }}assets/img/carousel/2.jpg" class="d-block w-100 rounded"
+                 alt="...">
+             </div>
+           </div>
+
+         </div>
+       </div>
+       <div class="col-lg-5 col-md-8">
          <div class="card bg-secondary shadow border-0">
 
            <div class="card-body px-lg-5 py-lg-5">
@@ -64,7 +93,12 @@
                    <div class="input-group-prepend">
                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                    </div>
-                   <input class="form-control" placeholder="Password" type="password" name="password">
+                   <input class="form-control" placeholder="Password" type="password" name="password"
+                     id="passwordInput">
+                   <div class="input-group-append">
+                     <span class="input-group-text" id="togglePassword" style="cursor: pointer;"><i
+                         class="fa fa-eye-slash"></i></span>
+                   </div>
                  </div>
                  @error('password')
                    {{ $message }}
@@ -78,17 +112,17 @@
                  </label>
                </div>
                <div class="text-center">
-                 <button type="submit" class="btn btn-primary my-4">Sign in</button>
+                 <button type="submit" class="btn btn-info my-4">Sign in</button>
                </div>
              </form>
            </div>
          </div>
          <div class="row mt-3">
            <div class="col-6">
-             <a href="{{ url('/forgot-password') }}" class="text-light"><small>Forgot password?</small></a>
+             <a href="{{ url('/forgot-password') }}" class="text-light"><small>Lupa Password</small></a>
            </div>
            <div class="col-6 text-right">
-             <a href="{{ url('/registrasi') }}" class="text-light"><small>Create new account</small></a>
+             <a href="{{ url('/registrasi') }}" class="text-light"><small>Daftar Disini</small></a>
            </div>
          </div>
        </div>
@@ -97,4 +131,16 @@
 
    @if ($message = session::get('failed'))
    @endif
+
+   <script>
+     const passwordInput = document.getElementById('passwordInput');
+     const togglePassword = document.getElementById('togglePassword');
+
+     togglePassword.addEventListener('click', function() {
+       const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+       passwordInput.setAttribute('type', type);
+       togglePassword.innerHTML = type === 'password' ? '<i class="fa fa-eye-slash"></i>' :
+         '<i class="fa fa-eye"></i>';
+     });
+   </script>
  @endsection

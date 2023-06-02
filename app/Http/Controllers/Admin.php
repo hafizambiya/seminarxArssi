@@ -128,6 +128,6 @@ class Admin extends Controller
         $data->pelunasan = $request->pelunasan;
         $data->save();
 
-        return redirect('admin')->with('msg', 'Berhasil mengedit peserta' . $data->fullname . 'berhasil diupdate ');
+        return redirect('admin/' . $idpeserta)->with('msg', 'Berhasil mengedit peserta' . $data->fullname . 'berhasil diupdate ');
     }
 }
