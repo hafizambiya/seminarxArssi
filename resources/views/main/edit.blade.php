@@ -7,26 +7,22 @@
     <div class="header pb-8 pt-1 pt-lg-2 d-flex align-items-center"
       style="min-height: 600px; background-image: url(../assets/img/theme/seminar.jpg); background-size: cover; background-position: center top;">
       <span class="mask bg-gradient-default opacity-8"></span>
-      <div class="container-fluid d-flex align-items-center">
-        <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white mt-1">Hello Admin</h1>
-            <p class="text-white mt-0 mb-1">Selamat datang pada laman Admin Seminar Nasional X dan
-              Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
-              anda saat ini terdaftar mengikuti kegiatan</p>
-          </div>
-        </div>
-      </div>
+
+
     </div>
 
-    <div class="container-fluid" style="margin-top: -15rem;">
+    <div class="container-fluid" style="margin-top: -30rem;">
       <div class="row">
+        @if (session('msg'))
+          <div class="alert alert-success mt-3">{{ session('msg') }}</div>
+        @endif
+
         <div class="col-xl-12">
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">My account</h3>
+                  <h3 class="mb-0">Edit Peserta {{ $nama }}</h3>
                 </div>
               </div>
             </div>
@@ -36,6 +32,13 @@
                   <a href="{{ url('admin') }}">
                     <button type="button" class="btn btn-warning">kembali</button>
                   </a>
+                  <form method="POST" action="{{ url('admin/' . $idpeserta) }}" class="d-inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger"
+                      onclick="return confirm('Apakah Anda yakin ingin menghapus peserta ini?')"><i
+                        class="fas fa-trash"></i> delete peserta</button>
+                  </form>
                 </div>
 
                 <form method="POST" action="{{ url('admin/' . $idpeserta) }}">
@@ -73,7 +76,8 @@
                         id="pelunasan" name="pelunasan">
                         <option value="" selected>-Pilih-</option>
                         <option value="0" {{ $pelunasan == '0' ? 'selected' : '' }}>belum</option>
-                        <option value="lunas" {{ $pelunasan == 'lunas' ? 'selected' : '' }}>lunas</option>
+                        <option value="lunas" {{ $pelunasan == 'lunas' ? 'selected' : '' }}>lunas
+                        </option>
                         <option value="free" {{ $pelunasan == 'free' ? 'selected' : '' }}>free</option>
                         <option value="sponsor" {{ $pelunasan == 'sponsor' ? 'selected' : '' }}>sponsor
                         </option>

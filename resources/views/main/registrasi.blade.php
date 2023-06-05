@@ -11,7 +11,8 @@
       <div class="header-body text-center mb-4 mt-1"></div>
       <div class="row justify-content-center">
         <div class="col-lg-8 col-md-8 text-center batas-bawah">
-          <h1 class="text-white font-hp">Pendaftaran Seminar Nasional ARSSI X dan Healthcare Expo VIII</h1>
+          <h1 class="text-white font-hp">Pendaftaran Seminar Nasional ARSSI X dan Healthcare Expo VIII Juli
+            2023</h1>
 
         </div>
       </div>
@@ -215,7 +216,7 @@
                             name="nama_pendaftar" value="{{ old('nama_pendaftar') }}">
 
                         </div>
-                        <small>tuliskan - (strip) jika pendaftar merupakan peserta</small>
+                        <small>tuliskan '-' strip jika pendaftar merupakan peserta</small>
                         @error('nama_pendaftar')
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -230,7 +231,7 @@
                             name="no_hp_pendaftar" value="{{ old('no_hp_pendaftar') }}">
 
                         </div>
-                        <small>tuliskan - (strip) jika pendaftar merupakan peserta</small>
+                        <small>tuliskan '-' strip jika pendaftar merupakan peserta</small>
                         @error('no_hp_pendaftar')
                           <p class="text-danger">{{ $message }}</p>
                         @enderror

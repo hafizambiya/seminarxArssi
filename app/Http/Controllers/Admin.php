@@ -128,6 +128,13 @@ class Admin extends Controller
         $data->pelunasan = $request->pelunasan;
         $data->save();
 
-        return redirect('admin/' . $idpeserta)->with('msg', 'Berhasil mengedit peserta' . $data->fullname . 'berhasil diupdate ');
+        return redirect('admin/' . $idpeserta)->with('msg', 'Berhasil mengedit peserta' . ' ' . $data->fullname);
+    }
+
+    public function destroy($idpeserta)
+    {
+        $data = Peserta::where('idpeserta', $idpeserta)->first();
+        $data->delete();
+        return redirect('admin')->with('msg', 'Data ' . ' ' . $data->nama_peserta . ' ' . 'berhasil dihapus ');
     }
 }
