@@ -4,7 +4,18 @@
  @section('content')
    {{-- {{ dd($user->all()) }} --}}
    <div class="main-content">
-
+     @php
+       if ($user->seminar && $user->workshop) {
+           $acara = ' Seminar dan Workshop' . ' ' . $user->workshop;
+           $idacara = 'SW';
+       } elseif (!$user->seminar && $user->workshop) {
+           $acara = 'Workshop' . ' ' . $user->workshop;
+           $idacara = 'W';
+       } else {
+           $acara = 'Seminar';
+           $idacara = 'S';
+       }
+     @endphp
      <!-- Header -->
      <div class="header pb-8 pt-1 pt-lg-2 d-flex align-items-center"
        style="min-height: 600px; background-image: url(../assets/img/theme/seminar.jpg); background-size: cover; background-position: center top;">
@@ -18,13 +29,7 @@
              <h1 class="display-2 text-white mt-5">Hello {{ $user->nama_peserta }}</h1>
              <p class="text-white mt-0 mb-5">Selamat datang pada laman peserta Seminar Nasional X dan
                Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
-               anda saat ini terdaftar mengikuti kegiatan @if ($user->seminar && $user->workshop)
-                 Seminar & workshop
-               @elseif (!$user->seminar && $user->workshop)
-                 Workshop {{ $user->workshop }}
-               @else
-                 seminar
-               @endif
+               anda saat ini terdaftar mengikuti kegiatan {{ $acara }}
              </p>
 
              <div class="container text-center">
@@ -65,6 +70,9 @@
                            name="pelunasan">
                        </div>
 
+                       <input class="d-none" type="text" value="{{ $acara }}" name="acara">
+                       <input class="d-none" type="text" value="{{ $idacara }}" name="idacara">
+
 
                        <button type="submit" class="btn btn-info">Bayar Disini</button>
 
@@ -103,6 +111,7 @@
                <div class="col-lg-3 order-lg-2">
                  <div class="card-profile-image">
                    <a href="#" class="bg-warning">
+
                      <img
                        src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}"
                        class="rounded-circle ">
