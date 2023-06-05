@@ -29,6 +29,8 @@ use App\Http\Controllers\RegisteredController;
 //     return view('welcome');
 // })->name('welcome');
 
+Route::redirect('/', '/login');
+
 Route::resource('registrasi', PesertaController::class);
 
 Route::group(['middleware' => ['auth']], function () {
