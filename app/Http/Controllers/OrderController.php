@@ -10,6 +10,7 @@ class OrderController extends Controller
     public function checkout(Request $request)
     {
         $order = $request->all();
+        // dd($order);
 
 
         /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
@@ -36,13 +37,27 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         $params = array(
             'transaction_details' => array(
                 'order_id' => $request->idpesanan,
-                'gross_amount' => $request->pembelian,
+                'gross_amount' => $request->pembelian + 4400,
 
             ),
             'customer_details' => array(
                 'first_name' => $request->nama,
                 'email' => $request->email,
             ),
+            'item_details' => array(
+                array(
+                    'id' => $request->idacara,
+                    'price' => $request->pembelian, // Harga produk atau barang
+                    'quantity' => 1, // Jumlah produk atau barang yang dibeli
+                    'name' => $request->acara, // Nama produk atau barang
+                ),
+                array(
+                    'id' => 'fee transfer',
+                    'price' => 4400, // Harga produk atau barang
+                    'quantity' => 1, // Jumlah produk atau barang yang dibeli
+                    'name' => 'Biaya Transaksi', // Nama produk atau barang
+                ),
+            )
         );
 
         // dd($request->snaptoken);

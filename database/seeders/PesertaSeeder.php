@@ -18,7 +18,7 @@ class PesertaSeeder extends Seeder
     {
         $faker = Faker::create('id_ID');
 
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             // $gender = $faker->randomElement(['L', 'P']);
             // $idPeserta = str_pad($i, 3, '0', STR_PAD_LEFT);
             Peserta::create([

@@ -47,6 +47,7 @@
                 <label for="pembayaran">Jumlah Pembayaran</label>
                 <input type="text" class="form-control" id="pembayaran"
                   value="{{ $order['pembelian'] }}" readonly>
+                  <small>Biaya transaksi dikenakan 4400</small>
               </div>
 
 
