@@ -56,4 +56,15 @@ margin-bottom: 120px;
   .logo-arssi{
         display: none;
     }
+
+    .barcode{
+        margin-top: 60px;
+    }
+    .nama-peserta{
+        padding-top: 80px;
+    }
+}
+
+.fs-justify{
+    text-align: justify;
 }

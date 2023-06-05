@@ -26,11 +26,17 @@
          <div class="row">
            <div class="col-lg-7 col-md-10">
              {{-- {{ dd($user->pelunasan) }} --}}
-             <h1 class="display-2 text-white mt-5">Hello {{ $user->nama_peserta }}</h1>
-             <p class="text-white mt-0 mb-5">Selamat datang pada laman peserta Seminar Nasional X dan
+             <h4 class="display-2 text-white mt-5 nama-peserta" style="font-size:30px">Hello
+               {{ $user->nama_peserta }}
+             </h4>
+             <p class="text-white mt-0 fs-justify">Selamat datang pada laman peserta Seminar Nasional X dan
                Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023,
                anda saat ini terdaftar mengikuti kegiatan {{ $acara }}
              </p>
+             <p class="text-white mt-0 fs-justify">Presensi kehadiran akan menggunakan barcode di halaman
+               ini, barcode
+               berwarna merah
+               menandakan pembayaran belum dilakukan/lunas</p>
 
              <div class="container text-center">
                <div class="row">
@@ -107,14 +113,19 @@
        <div class="row">
          <div class="col-xl-4 order-xl-2 mb-0 mb-xl-0">
            <div class="card card-profile shadow">
-             <div class="row justify-content-center">
+             <div class="row justify-content-center barcode">
                <div class="col-lg-3 order-lg-2">
                  <div class="card-profile-image">
                    <a href="#" class="bg-warning">
-
-                     <img
-                       src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}"
-                       class="rounded-circle ">
+                     @if ($user->pelunasan == 0)
+                       <img
+                         src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}&chf=bg,s,FF0000"
+                         class="rounded-circle ">
+                     @else
+                       <img
+                         src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl={{ $user->idpeserta }}"
+                         class="rounded-circle ">
+                     @endif
                    </a>
                  </div>
                </div>

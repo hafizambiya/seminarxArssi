@@ -213,7 +213,9 @@
                           </div>
                           <input class="form-control" placeholder="Nama Pendaftar" type="text"
                             name="nama_pendaftar" value="{{ old('nama_pendaftar') }}">
+
                         </div>
+                        <small>tuliskan - (strip) jika pendaftar merupakan peserta</small>
                         @error('nama_pendaftar')
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -224,9 +226,11 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-tablet-button"></i></span>
                           </div>
-                          <input class="form-control" placeholder="No HP Pendatar" type="number"
+                          <input class="form-control" placeholder="No HP Pendatar" type="text"
                             name="no_hp_pendaftar" value="{{ old('no_hp_pendaftar') }}">
+
                         </div>
+                        <small>tuliskan - (strip) jika pendaftar merupakan peserta</small>
                         @error('no_hp_pendaftar')
                           <p class="text-danger">{{ $message }}</p>
                         @enderror
