@@ -16,7 +16,7 @@
 
 
            <div class="col-lg-9 col-md-8 batas-bawah">
-             <h1 class="text-white">Selamat Datang Peserta Seminar Nasional X ARSSI</h1>
+             <h1 class="text-white">Selamat Datang Peserta Seminar Nasional X ARSSI 2023</h1>
              <p class="text-lead text-light">Hotel The Ritz Carlton Jakarta-Mega Kuningan <br> 26-28 Juli
                2023 </p>
              <a href="{{ url('/registrasi') }}"><button type="submit" class="btn btn-info mb-1">Daftar
