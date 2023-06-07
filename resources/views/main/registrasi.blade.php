@@ -26,7 +26,7 @@
   </div>
   </div>
   <!-- Page content -->
-  <div class="container mt--7 pb-5">
+  <div class="container mt--8 pb-5">
     <!-- Table -->
     <div class="row justify-content-center">
       <div class="col-lg-10 col-md-12">
@@ -129,11 +129,15 @@
                             <option value="">Pilih opsi Workshop</option>
                             <option value="">Tidak</option>
                             <option value="1">Workshop 1 Manajemen Risiko</option>
-                            <option value="2">Workshop 2 Optimalisasi  Penangananan Dispute / Pending Claim dalam Penagihan ke BPJS Kesehatan</option>
-                            <option value="3">Workshop 3 Program Nasional (TB, Stunting ) dalam Akreditasi RS</option>
+                            <option value="2">Workshop 2 Optimalisasi Penangananan Dispute / Pending
+                              Claim dalam Penagihan ke BPJS Kesehatan</option>
+                            <option value="3">Workshop 3 Program Nasional (TB, Stunting ) dalam
+                              Akreditasi RS</option>
                             <option value="4">Workshop 4 E- Rekam Medis</option>
-                            <option value="5">Workshop 5 Asuhan Keperawatan yang Efektif dan Efisien Melalui E -Rekam Medis</option>
-                            <option value="6">Workshop 6 Supply Chain Management dalam Pengelolaan Logistik Farmasi </option>
+                            <option value="5">Workshop 5 Asuhan Keperawatan yang Efektif dan Efisien
+                              Melalui E -Rekam Medis</option>
+                            <option value="6">Workshop 6 Supply Chain Management dalam Pengelolaan
+                              Logistik Farmasi </option>
                           </select>
                         </div>
                       </div>
