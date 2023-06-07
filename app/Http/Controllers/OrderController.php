@@ -27,7 +27,7 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
+        \Midtrans\Config::$isProduction = true;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -57,34 +57,34 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
                     'quantity' => 1, // Jumlah produk atau barang yang dibeli
                     'name' => 'Biaya Transaksi', // Nama produk atau barang
                 ),
-            )
+            ),
+            'expiry' => array(
+                'unit' => 'day',
+                'duration' => 7,
+            ),
         );
 
         // dd($request->snaptoken);
+         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-        if (!empty($request->snaptoken)) {
-            $snapToken = $request->snaptoken;
-            return view('main.checkout', compact('snapToken', 'order'));
-        } else {
-            $snapToken = \Midtrans\Snap::getSnapToken($params);
-
-            $peserta = Peserta::where('idpesanan', $request->idpesanan)->first();
+            $peserta = Peserta::where('idpeserta', $request->idpeserta)->first();
             // dd($peserta->snaptoken);
 
             $peserta->snaptoken = $snapToken;
             $peserta->save();
             return view('main.checkout', compact('snapToken', 'order'));
-        }
+
     }
 
     public function callback(Request $request)
     {
 
         $serverKey = config('midtrans.server_key');
+        $order_id = substr($request->order_id, 0, -2);
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture') {
-                $order = Peserta::where('idpesanan', $request->order_id)->first();
+                $order = Peserta::where('idpesanan', $order_id)->first();
                 // dd($order);
                 // $order->update(['pelunasan' => 1]);
                 $order->pelunasan = 'lunas';

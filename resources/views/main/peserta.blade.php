@@ -2,6 +2,13 @@
 
  @section('title', 'Peserta-Dashboard')
  @section('content')
+   @php
+     $orderCount = session()->get('order_count', 0);
+     $orderId = $user->idpesanan . '_' . ($orderCount + 1);
+     session(['order_count' => $orderCount + 1]);
+     $snaptoken = $user->snaptoken;
+     
+   @endphp
    {{-- {{ dd($user->all()) }} --}}
    <div class="main-content">
      @php
@@ -40,7 +47,7 @@
 
              <div class="container text-center">
                <div class="row">
-                 <div class="col col-lg-2 col-12 col-sm-12 mr-3 mb-3">
+                 <div class="col col-lg-4 col-12 col-sm-12 mr-3 mb-3">
                    @if ($user->pelunasan == 0)
                      <form action="{{ url('/checkout') }}" method="POST">
                        @csrf
@@ -56,8 +63,8 @@
                        </div>
                        <div class="form-group d-none">
                          <label for="idpesanan">id pesanan</label>
-                         <input type="text" class="form-control" class="idpesanan"
-                           value="{{ $user->idpesanan }}" name="idpesanan">
+                         <input type="hidden" class="form-control" name="idpesanan"
+                           value="{{ $orderId }}">
                        </div>
                        <div class="form-group d-none">
                          <label for="email">email peserta</label>
@@ -78,9 +85,11 @@
 
                        <input class="d-none" type="text" value="{{ $acara }}" name="acara">
                        <input class="d-none" type="text" value="{{ $idacara }}" name="idacara">
+                       <input class="d-none" type="text" value="{{ $user->idpeserta }}"
+                         name="idpeserta">
 
 
-                       <button type="submit" class="btn btn-info">Bayar Disini</button>
+                       <button type="submit" class="btn btn-info">Pilih Metode Pembayaran</button>
 
                      </form>
                    @elseif($user->pelunasan)
@@ -89,15 +98,16 @@
                    @endif
 
 
+
                  </div>
-                 <div class="col col-lg-3 col-12 col-sm-12 ">
-                   @if ($user->pelunasan == 0)
-                     <button type="button" class="btn btn-primary btn-warning">Menunggu Pembayaran
-                     </button>
+                 <div class="col col-lg-4 col-12 col-sm-12 mr-3 mb-3">
+                   @if (!is_null($user->snaptoken) && $user->pelunasan === '0')
+                     <button type="submit" id="pay-button" class="btn btn-primary">Lanjutkan
+                       Pembayaran</button>
                    @endif
-
-
                  </div>
+
+
                </div>
              </div>
 
@@ -173,22 +183,23 @@
              </div>
              <div class="card-body">
                <form>
-                 <h6 class="heading-small text-muted mb-4">User information</h6>
+                 <h6 class="heading-small text-muted mb-4">Informasi peserta</h6>
                  <div class="pl-lg-4">
                    <div class="row">
                      <div class="col-lg-6">
                        <div class="form-group">
                          <label class="form-control-label" for="input-username">Nama Peserta</label>
                          <input type="text" id="input-username"
-                           class="form-control form-control-alternative" placeholder="Username"
-                           value="{{ $user->nama_peserta }}">
+                           class="form-control form-control-alternative" placeholder=""
+                           value="{{ $user->nama_peserta }}" readonly>
                        </div>
                      </div>
                      <div class="col-lg-6">
                        <div class="form-group">
                          <label class="form-control-label" for="input-email">Email address</label>
                          <input type="email" id="input-email"
-                           class="form-control form-control-alternative" value="{{ $user->email }}">
+                           class="form-control form-control-alternative" value="{{ $user->email }}"
+                           readonly>
                        </div>
                      </div>
                    </div>
@@ -197,7 +208,8 @@
                        <div class="form-group">
                          <label class="form-control-label" for="input-first-name">No HP</label>
                          <input type="text" id="input-first-name"
-                           class="form-control form-control-alternative" value="{{ $user->no_hp }}">
+                           class="form-control form-control-alternative" value="{{ $user->no_hp }}"
+                           readonly>
                        </div>
                      </div>
 
@@ -212,7 +224,7 @@
                        <div class="form-group">
                          <label class="form-control-label" for="input-address">Instansi</label>
                          <input id="input-address" class="form-control form-control-alternative"
-                           value="{{ $user->instansi }}" type="text">
+                           value="{{ $user->instansi }}" type="text" readonly>
                        </div>
                      </div>
                    </div>
@@ -221,16 +233,16 @@
                        <div class="form-group">
                          <label class="form-control-label" for="input-city">Alamat Instansi</label>
                          <input type="text" id="input-city"
-                           class="form-control form-control-alternative" placeholder="City"
-                           value="{{ $user->alamat_instansi }}">
+                           class="form-control form-control-alternative" placeholder=""
+                           value="{{ $user->alamat_instansi }}" readonly>
                        </div>
                      </div>
                      <div class="col-lg-4">
                        <div class="form-group">
                          <label class="form-control-label" for="input-country">Telp Instansi</label>
                          <input type="text" id="input-country"
-                           class="form-control form-control-alternative" placeholder="Country"
-                           value="{{ $user->no_telp_instansi }}">
+                           class="form-control form-control-alternative" placeholder=""
+                           value="{{ $user->no_telp_instansi }}" readonly>
                        </div>
                      </div>
                      <div class="col-lg-4">
@@ -238,7 +250,7 @@
                          <label class="form-control-label" for="input-country">Email Instansi</label>
                          <input type="text" id="input-postal-code"
                            class="form-control form-control-alternative"
-                           value="{{ $user->email_instansi }}">
+                           value="{{ $user->email_instansi }}" readonly>
                        </div>
                      </div>
                    </div>
@@ -252,18 +264,19 @@
                        <div class="form-group">
                          <label class="form-control-label" for="input-city">Jumlah Pembayaran</label>
                          <input type="text" id="input-city"
-                           class="form-control form-control-alternative" placeholder="City"
-                           value="{{ $user->pembelian }}">
+                           class="form-control form-control-alternative" placeholder=""
+                           value="{{ $user->pembelian }}" readonly>
                        </div>
                      </div>
                      <div class="col-lg-4">
                        <div class="form-group">
                          <label class="form-control-label" for="input-country">Status</label>
                          <input type="text" id="input-country"
-                           class="form-control form-control-alternative" placeholder="Country"
+                           class="form-control form-control-alternative" placeholder=""
                            value="@if ($user->pelunasan == 0) Belum lunas
                            @else
-                               {{ $user->pelunasan }} @endif">
+                               {{ $user->pelunasan }} @endif"
+                           readonly>
                        </div>
                      </div>
 
@@ -274,4 +287,32 @@
            </div>
          </div>
        </div>
+
+       <script type="text/javascript">
+         var payButton = document.getElementById('pay-button');
+         payButton.addEventListener('click', function() {
+           snap.pay('{{ $snaptoken }}', {
+             onSuccess: function(result) {
+               /* You may add your own implementation here */
+               // alert("payment success!");
+               window.location.href = 'peserta';
+               console.log(result);
+             },
+             onPending: function(result) {
+               /* You may add your own implementation here */
+               alert("Waiting for your payment!");
+               console.log(result);
+             },
+             onError: function(result) {
+               /* You may add your own implementation here */
+               alert("Payment failed!");
+               console.log(result);
+             },
+             onClose: function() {
+               /* You may add your own implementation here */
+               alert('You closed the popup without finishing the payment');
+             }
+           });
+         });
+       </script>
      @endsection

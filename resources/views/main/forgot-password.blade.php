@@ -15,7 +15,7 @@
      </div>
    </div>
    <!-- Page content -->
-   <div class="container mt--8 pb-1">
+   <div class="container mt--6 pb-1">
      <div class="row justify-content-center">
        <div class="col-lg-5 col-md-7">
          <div class="card bg-secondary shadow border-0">

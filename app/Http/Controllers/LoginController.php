@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Peserta;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -25,7 +25,7 @@ class LoginController extends Controller
         ];
         $remember = $request->has('remember');
 
-        $validasi = Auth::attempt($data, $remember);
+        $validasi = Auth::attempt($data, $remember,Peserta::class);
         $peserta = Auth::user();
         if ($validasi) {
             if ($peserta->role == "admin") {

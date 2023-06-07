@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Peserta;
+use App\Models\Peserta as peserta;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

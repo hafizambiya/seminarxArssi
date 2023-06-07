@@ -30,6 +30,9 @@ margin-bottom: 120px;
         color: aliceblue;
         margin-left: 10px;
     }
+    .daftar{
+        margin-bottom: 30px;
+    }
 }
 
 @media(min-width:850px){

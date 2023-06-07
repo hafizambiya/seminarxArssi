@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\peserta;
+use App\Models\peserta as Peserta;
 use Illuminate\Http\Request;
 use App\Mail\RegistrasiBerhasil;
 use Illuminate\Support\Facades\Mail;
@@ -324,6 +324,6 @@ class PesertaController extends Controller
         $peserta->pelunasan = "0";
         $peserta->save();
         Mail::to($peserta->email)->send(new RegistrasiBerhasil($peserta));
-        return redirect('login')->with('status', 'Peserta berhasil didafftarkan silahkan login untuk melanjutkan pembayaran');
+        return redirect('login')->with('status', 'Peserta berhasil didaftarkan silahkan login untuk melanjutkan pembayaran');
     }
 }

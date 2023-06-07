@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class peserta extends Authenticatable
+class Peserta extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, CanResetPassword;
     protected $table = 'pesertas';

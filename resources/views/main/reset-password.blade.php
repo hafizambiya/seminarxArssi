@@ -8,9 +8,8 @@
        <div class="header-body text-center">
          <div class="row justify-content-center">
            <div class="col-lg-5 col-md-6">
-             <h1 class="text-white">Welcome!</h1>
-             <p class="text-lead text-light">Use these awesome forms to login or create new account in your
-               project for free.</p>
+             <h1 class="text-white">Reset Password</h1>
+             <p class="text-lead text-light">Silahkan masukan password baru anda</p>
 
 
 
@@ -26,7 +25,7 @@
      </div>
    </div>
    <!-- Page content -->
-   <div class="container mt--8 pb-5">
+   <div class="container mt--6 pb-5">
      <div class="row justify-content-center">
        <div class="col-lg-5 col-md-7">
          <div class="card bg-secondary shadow border-0">

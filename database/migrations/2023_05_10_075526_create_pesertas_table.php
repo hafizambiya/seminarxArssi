@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('nama_peserta');
             $table->string('email')->unique();
             $table->char('no_hp');
-            $table->string('jabatan');
+            $table->string('jabatan')->nullable();;
             $table->string('instansi');
-            $table->string('email_instansi');
-            $table->text('alamat_instansi');
-            $table->char('no_telp_instansi');
+            $table->string('email_instansi')->nullable();;
+            $table->text('alamat_instansi')->nullable();;
+            $table->char('no_telp_instansi')->nullable();;
             $table->string('nama_pendaftar');
             $table->string('no_hp_pendaftar');
             $table->boolean('seminar')->default(false);

@@ -52,7 +52,8 @@
 
 
             </form>
-            <button type="submit" id="pay-button" class="btn btn-primary">Bayar Sekarang</button>
+            <button type="submit" id="pay-button" class="btn btn-primary" style="display: block; margin: 0 auto; width: 250px;">Pilih Metode Pembayaran</button>
+
           </div>
         </div>
 

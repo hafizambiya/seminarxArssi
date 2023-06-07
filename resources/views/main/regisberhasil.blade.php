@@ -16,7 +16,7 @@
     <p style="margin-bottom: 10px; ">Yth Bapak/Ibu {{ $peserta->nama_peserta }},</p>
     <p style="margin-bottom: 10px; ">Di tempat</p>
     <p style="margin-bottom: 10px; text-align: justify">Terima kasih telah melakukan registrasi
-      acara Seminar Nasional X dan Health Care Expo VIII dengan Tema “Tantangan dan Kesiapan Rumah Sakit
+      acara Seminar Nasional X dan Healthcare Expo VIII dengan tema “Tantangan dan Kesiapan Rumah Sakit
       dalam Implementasi Transformasi Kesehatan di Era Digital dan Medical Tourism" yang akan
       diselenggarakan pada 26- 28 Juli 2023 di Hotel The Ritz Carlton Jakarta-Mega Kuningan Berikut
       adalah detail informasi Anda:</p>
@@ -37,12 +37,12 @@
       <tr>
         <td style="padding: 5px; width :150px"><strong>Acara Yang Akan diikuti </strong></td>
         <td style="padding: 5px;">
-          @if ($peserta->seminar && $peserta->seminar)
-            Seminar dan Workshop {{ $peserta->seminar }}
-          @elseif ($peserta->seminar && !$peserta->seminar)
+          @if ($peserta->seminar && $peserta->workshop)
+            Seminar dan Workshop {{ $peserta->workshop }}
+          @elseif ($peserta->seminar && !$peserta->workshop)
             Seminar
-          @elseif (!$peserta->seminar && $peserta->seminar)
-            Workshop {{ $peserta->seminar }}
+          @elseif (!$peserta->seminar && $peserta->workshop)
+            Workshop {{ $peserta->workshop }}
           @endif
         </td>
       </tr>
