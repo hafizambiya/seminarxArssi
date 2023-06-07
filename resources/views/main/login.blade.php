@@ -17,9 +17,11 @@
 
            <div class="col-lg-9 col-md-8 batas-bawah">
              <h1 class="text-white">Selamat Datang Peserta Seminar Nasional X ARSSI</h1>
-             <p class="text-lead text-light">Hotel The Ritz Carlton Jakarta-Mega Kuningan <br> 26-28 Juli 2023 </p>
-             <a href="{{ url('/registrasi') }}"><button type="submit" class="btn btn-info mb-1">Daftar Disini</button></a>
-             
+             <p class="text-lead text-light">Hotel The Ritz Carlton Jakarta-Mega Kuningan <br> 26-28 Juli
+               2023 </p>
+             <a href="{{ url('/registrasi') }}"><button type="submit" class="btn btn-info mb-1">Daftar
+                 Disini</button></a>
+
              @if ($message = Session::get('failed'))
                <p class="text-danger bg-light">{{ $message }}
                </p>
@@ -45,7 +47,7 @@
      </div>
    </div>
    <!-- Page content -->
-   <div class="container mt--7 pb-5">
+   <div class="container mt--8 pb-5">
      <div class="row justify-content-center">
        <div class="col-lg-5 col-md-8 mb-2">
          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
