@@ -5,7 +5,8 @@
    @php
      $orderCount = session()->get('order_count', 0);
      $orderId = $user->idpesanan . '_' . ($orderCount + 1);
-     session(['order_count' => $orderCount + 1]);
+     $orderCount++;
+     session()->put('order_count', $orderCount);
      $snaptoken = $user->snaptoken;
      
    @endphp
