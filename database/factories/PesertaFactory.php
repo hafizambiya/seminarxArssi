@@ -40,6 +40,7 @@ class PesertaFactory extends Factory
             'role' => 'admin', // Role admin
             'remember_token' => Str::random(10),
             'created_at' => now(),
+            'order_count' => 0,
             'updated_at' => now(),
         ];
     }
