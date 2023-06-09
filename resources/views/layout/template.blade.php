@@ -34,7 +34,7 @@
       /* background-color:red; */
     }
   }
-  
+
   @media(min-width:850px){
       .daftar {
       margin-bottom: 20px;
@@ -61,7 +61,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
-        <a class="navbar-brand"  href="">
+        <a class="navbar-brand"  href="{{ url('/peserta') }}">
           <img style="height:70px" src="{{ asset('/') }}assets/img/brand/arssi.png" />
           <h2 class="logo-arssi">Asosiasi Rumah Sakit Swasta Indonesia</h2>
         </a>
