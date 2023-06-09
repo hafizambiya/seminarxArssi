@@ -53,13 +53,13 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
                 ),
                 array(
                     'id' => 'fee transfer',
-                    'price' => 4400, // Harga produk atau barang
+                    'price' => 4440, // Harga produk atau barang
                     'quantity' => 1, // Jumlah produk atau barang yang dibeli
                     'name' => 'Biaya Transaksi', // Nama produk atau barang
                 ),
             ),
             'expiry' => array(
-                'unit' => 'day',
+                'unit' => 'days',
                 'duration' => 30,
             ),
         );
