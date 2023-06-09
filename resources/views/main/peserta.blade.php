@@ -3,9 +3,11 @@
  @section('title', 'Peserta-Dashboard')
  @section('content')
    @php
-     $orderCount = session()->get('order_count', 0);
+     $orderCount = $user->orderCount;
      $orderId = $user->idpesanan . '_' . ($orderCount + 1);
      $orderCount++;
+     $user->orderCount = $orderCount;
+     $user->save();
      session()->put('order_count', $orderCount);
      $snaptoken = $user->snaptoken;
      
