@@ -60,20 +60,19 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
             ),
             'expiry' => array(
                 'unit' => 'day',
-                'duration' => 7,
+                'duration' => 30,
             ),
         );
 
         // dd($request->snaptoken);
-         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
 
-            $peserta = Peserta::where('idpeserta', $request->idpeserta)->first();
-            // dd($peserta->snaptoken);
+        $peserta = Peserta::where('idpeserta', $request->idpeserta)->first();
+        // dd($peserta->snaptoken);
 
-            $peserta->snaptoken = $snapToken;
-            $peserta->save();
-            return view('main.checkout', compact('snapToken', 'order'));
-
+        $peserta->snaptoken = $snapToken;
+        $peserta->save();
+        return view('main.checkout', compact('snapToken', 'order'));
     }
 
     public function callback(Request $request)
