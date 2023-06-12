@@ -41,7 +41,7 @@ class PesertaSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'snaptoken' => null,
                 'role' => 'user',
-                'order_count' => 0,
+                'orderCount' => 0,
                 'remember_token' => Str::random(10),
                 'created_at' => now(),
                 'updated_at' => now(),

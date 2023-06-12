@@ -27,7 +27,7 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = true;
+        \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
@@ -93,9 +93,68 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         }
     }
 
-    public function invoice()
+    public function admincheckout(Request $request)
     {
-        // $order = Peserta::find($id);
-        return view('main.peserta');
+        $order = $request->all();
+        // dd($order);
+
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+        // dd($order);
+
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => $request->instansi,
+                'gross_amount' => $request->pembelian + 4440,
+
+            ),
+            'customer_details' => array(
+                'first_name' => $request->nama,
+                'email' => $request->email,
+            ),
+            'item_details' => array(
+                array(
+                    'id' => $request->idacara,
+                    'price' => $request->pembelian, // Harga produk atau barang
+                    'quantity' => 1, // Jumlah produk atau barang yang dibeli
+                    'name' => $request->acara, // Nama produk atau barang
+                ),
+                array(
+                    'id' => 'fee transfer',
+                    'price' => 4440, // Harga produk atau barang
+                    'quantity' => 1, // Jumlah produk atau barang yang dibeli
+                    'name' => 'Biaya Transaksi', // Nama produk atau barang
+                ),
+            ),
+            'expiry' => array(
+                'unit' => 'days',
+                'duration' => 30,
+            ),
+        );
+
+        // dd($request->snaptoken);
+        $snapToken = \Midtrans\Snap::getSnapToken($params);
+
+        return view('main.konfirmasi', compact('snapToken', 'order'));
+    }
+
+    public function callback_admin(Request $request)
+    {
+
+        $serverKey = config('midtrans.server_key');
+        $order_id = substr($request->order_id, 0, -2);
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == 'capture') {
+
+                return view('main.admin');
+            }
+        }
     }
 }

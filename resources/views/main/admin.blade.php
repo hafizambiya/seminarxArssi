@@ -22,6 +22,11 @@
                <p class="text-white mt-0 mb-1">Selamat datang pada laman Admin Seminar Nasional X dan
                  Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023
                </p>
+               <a href="{{ url('costumpembayaran') }}">
+                 <button type="submit" id="pay-button" class="btn btn-primary">Buat Virtual
+                   Account</button>
+               </a>
+
                @if (session('msg'))
                  <div class="alert alert-warning mt-3">{{ session('msg') }}</div>
                @endif
@@ -103,6 +108,8 @@
                  <div class="row align-items-center">
                    <div class="col-8">
                      <h3 class="mb-0">My account</h3>
+
+
                    </div>
                  </div>
                </div>
@@ -135,7 +142,8 @@
                              <td style="padding: 5px">
                                <a href="admin/{{ $peserta->idpeserta }}">
                                  <button type="button" class="btn btn-sm btn-info"><i
-                                     class="fas fa-plus-circle" style="width: 20px"></i> edit</button></a>
+                                     class="fas fa-plus-circle" style="width: 20px"></i>
+                                   edit</button></a>
 
                              </td>
                              <td style="padding: 5px" class="text-center">{{ $peserta->pelunasan }}</td>

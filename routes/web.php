@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth']], function () {
         // Route::resource('peserta', RegisteredController::class);
         Route::resource('admin', Admin::class);
         Route::get('admin/{id}', [PesertaController::class, 'edit']);
+        Route::get('costumpembayaran', [Admin::class, 'costumpembayaran']);
+        Route::post('konfirmasi', [OrderController::class, 'admincheckout']);
     });
 });
 
@@ -59,7 +61,7 @@ Route::controller(LoginController::class)->group(function () {
 Route::post('/registrasi_proses', [PesertaController::class, 'registrasi_proses']);
 
 Route::post('/checkout', [OrderController::class, 'checkout']);
-// Route::post('/midtrans-callback', [OrderController::class, 'callback']);
+Route::post('/midtrans-callback', [OrderController::class, 'callback']);
 // Route::get('/invoice', [OrderController::class, 'invoice']);
 Route::get('/forgot-password', function () {
     return view('main.forgot-password');

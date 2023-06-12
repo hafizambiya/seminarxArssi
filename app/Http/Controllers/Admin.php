@@ -137,4 +137,9 @@ class Admin extends Controller
         $data->delete();
         return redirect('admin')->with('msg', 'Data ' . ' ' . $data->nama_peserta . ' ' . 'berhasil dihapus ');
     }
+
+    public function costumpembayaran()
+    {
+        return view('main.costumpembayaran');
+    }
 }
