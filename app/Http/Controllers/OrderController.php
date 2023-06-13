@@ -88,6 +88,7 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
                     return view('main.admin');
                 } else {
                     $order = Peserta::where('idpesanan', $order_id)->first();
+                    dd($order);
                     $order->pelunasan = 'lunas';
                     $order->save();
                     return view('main.peserta');
