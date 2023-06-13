@@ -38,11 +38,11 @@ class PesertaController extends Controller
         $harga = '';
 
         if ($seminar && $workshop) {
-            $harga = 4000000;
+            $harga = 4500000;
         } elseif (!$seminar && $workshop) {
-            $harga = 2000000;
+            $harga = 2750000;
         } elseif ($seminar && !$workshop) {
-            $harga = 3000000;
+            $harga = 3750000;
         }
 
         // menentukan prefix sesuai dengan jenis kegiatan yang diikuti
