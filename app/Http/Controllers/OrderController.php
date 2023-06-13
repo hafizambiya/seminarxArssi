@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\peserta;
+use App\Models\peserta as Peserta;
 
 class OrderController extends Controller
 {
