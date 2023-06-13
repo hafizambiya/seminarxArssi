@@ -62,7 +62,7 @@
   <script type="text/javascript">
     var payButton = document.getElementById('pay-button');
     payButton.addEventListener('click', function() {
-      snap.pay('{{ $snaptoken }}', {
+      snap.pay('{{ $snapToken }}', {
         onSuccess: function(result) {
           /* You may add your own implementation here */
           // alert("payment success!");

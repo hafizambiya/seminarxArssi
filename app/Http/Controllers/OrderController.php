@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\peserta;
 
@@ -83,12 +84,14 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture') {
-                $order = Peserta::where('idpesanan', $order_id)->first();
-                // dd($order);
-                // $order->update(['pelunasan' => 1]);
-                $order->pelunasan = 'lunas';
-                $order->save();
-                return view('main.peserta');
+                if (Auth::user()->role === 'admin') {
+                    return view('main.admin');
+                } else {
+                    $order = Peserta::where('idpesanan', $order_id)->first();
+                    $order->pelunasan = 'lunas';
+                    $order->save();
+                    return view('main.peserta');
+                }
             }
         }
     }
@@ -142,19 +145,5 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
         $snapToken = \Midtrans\Snap::getSnapToken($params);
 
         return view('main.konfirmasi', compact('snapToken', 'order'));
-    }
-
-    public function callback_admin(Request $request)
-    {
-
-        $serverKey = config('midtrans.server_key');
-        $order_id = substr($request->order_id, 0, -2);
-        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
-        if ($hashed == $request->signature_key) {
-            if ($request->transaction_status == 'capture') {
-
-                return view('main.admin');
-            }
-        }
     }
 }

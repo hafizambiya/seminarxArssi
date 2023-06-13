@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/midtrans-callback-admin', [OrderController::class, 'callback_admin']);
+// Route::post('/midtrans-callback-admin', [OrderController::class, 'callback_admin']);
 Route::post('/midtrans-callback', [OrderController::class, 'callback']);
