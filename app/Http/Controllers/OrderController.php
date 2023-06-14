@@ -11,7 +11,7 @@ class OrderController extends Controller
     public function checkout(Request $request)
     {
         $order = $request->all();
-        // dd($order);
+
 
 
         /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
@@ -78,20 +78,20 @@ require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
 
     public function callback(Request $request)
     {
+        // dd(Auth::user()->role === 'user');
 
         $serverKey = config('midtrans.server_key');
         $order_id = substr($request->order_id, 0, -2);
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
         if ($hashed == $request->signature_key) {
             if ($request->transaction_status == 'capture') {
-                if (Auth::user()->role === 'admin') {
-                    return view('main.admin');
-                } else {
-                    $order = Peserta::where('idpesanan', $order_id)->first();
-                    dd($order);
+                $order = Peserta::where('idpesanan', $order_id)->first();
+
+                if ($order) {
                     $order->pelunasan = 'lunas';
                     $order->save();
-                    return view('main.peserta');
+                    // return view('main.peserta');
+                } else {
                 }
             }
         }
