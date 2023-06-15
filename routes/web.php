@@ -3,16 +3,17 @@
 use App\Models\peserta;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\Admin;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\RegisteredController;
+use App\Http\Controllers\SertifikatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('konfirmasi', [OrderController::class, 'admincheckout']);
     });
 });
+
+Route::get('/sertifikat', [SertifikatController::class, 'generateSertifikat']);
+Route::get('/sertifikat-view', function () {
+    return view('main.sertifikat');
+});
+
 
 // Route::resource('peserta', RegisteredController::class)->middleware('auth');
 // Route::controller(LoginController::class)->group(function () {
