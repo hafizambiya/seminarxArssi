@@ -7,10 +7,11 @@ use setasign\Fpdi\Fpdi;
 
 class SertifikatController extends Controller
 {
-    public function generateSertifikat()
+    public function generateSertifikat(Request $request)
     {
         // Mendapatkan data yang diperlukan, misalnya nama penerima sertifikat
-        $namaPenerima = "Muhammad Hafiz Ambiya";
+        $nama = $request->nama;
+        $namaPenerima = $nama;
 
         // Path ke file sertifikat template
         $templatePath = storage_path('../public/assets/img/brand/sertif.pdf');
@@ -36,11 +37,16 @@ class SertifikatController extends Controller
         // Menambahkan teks dinamis ke sertifikat
         $pdf->SetFont('Arial', '', 24);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetXY(100, 80);
+        $textWidth = $pdf->GetStringWidth($nama); // Mendapatkan lebar teks
+
+        $pageWidth = $pdf->GetPageWidth(); // Mendapatkan lebar halaman
+        $x = ($pageWidth - $textWidth) / 2; // Menghitung posisi X agar teks rata tengah
+
+        $pdf->SetXY($x, 80);
         $pdf->Write(0, $namaPenerima);
 
         // Menyimpan sertifikat yang telah dibuat
-        $outputPath = storage_path('app/public/sertifikat_output.pdf');
+        $outputPath = storage_path('app/public/sertifikat-' . $namaPenerima . '.pdf');
         $pdf->Output($outputPath, 'F');
 
         return response()->download($outputPath)->deleteFileAfterSend(true);

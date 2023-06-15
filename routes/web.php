@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::get('/sertifikat', [SertifikatController::class, 'generateSertifikat']);
+Route::get('/sertifikat/{nama}', [SertifikatController::class, 'generateSertifikat']);
 Route::get('/sertifikat-view', function () {
     return view('main.sertifikat');
 });
