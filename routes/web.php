@@ -47,10 +47,10 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::get('/sertifikat/{nama}', [SertifikatController::class, 'generateSertifikat']);
-Route::get('/sertifikat-view', function () {
-    return view('main.sertifikat');
-});
+Route::post('/sertifikat_workshop', [SertifikatController::class, 'generateSertifikatw']);
+
+Route::post('/sertifikat_seminar', [SertifikatController::class, 'generateSertifikats']);
+
 
 
 // Route::resource('peserta', RegisteredController::class)->middleware('auth');

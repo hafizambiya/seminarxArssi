@@ -32,7 +32,7 @@ return new class extends Migration
             $table->enum('pelunasan', [0, 'lunas', 'free', 'sponsor']);
             $table->string('password');
             $table->string('snaptoken')->nullable();
-            $table->string('orderCount')->nullable();
+            // $table->string('orderCount')->nullable();
             $table->string("role")->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -10,6 +10,7 @@
      $user->save();
      session()->put('order_count', $orderCount);
      $snaptoken = $user->snaptoken;
+     $ws = $user->workshop;
      
    @endphp
    {{-- {{ dd($user->all()) }} --}}
@@ -33,8 +34,8 @@
        <span class="mask bg-gradient-default opacity-8"></span>
        <!-- Header container -->
        <div class="container-fluid d-flex align-items-center">
-         <div class="row">
-           <div class="col-lg-7 col-md-10">
+         <div class="row margin-atas-tablet">
+           <div class="col-lg-7 col-md-12">
              {{-- {{ dd($user->pelunasan) }} --}}
              <h4 class="display-2 text-white mt-5 nama-peserta" style="font-size:30px">Hello
                {{ $user->nama_peserta }}
@@ -48,8 +49,8 @@
                berwarna merah
                menandakan pembayaran belum dilakukan/lunas</p>
 
-             <div class="container text-center">
-               <div class="row">
+             <div class="container">
+               <div class="row tex-tengah-tablet">
                  <div class="col col-lg-4 col-12 col-sm-12 mr-3 mb-3">
                    @if ($user->pelunasan == 0)
                      <form action="{{ url('/checkout') }}" method="POST">
@@ -96,7 +97,7 @@
 
                      </form>
                    @elseif($user->pelunasan)
-                     <button type="button" class="btn btn-primary btn-success">{{ $user->pelunasan }}
+                     <button type="button" class="btn btn-primary btn-success"> {{ $user->pelunasan }}
                      </button>
                    @endif
 
@@ -113,6 +114,62 @@
 
                </div>
              </div>
+
+             <div class="d-none">
+               @if ($user->pelunasan !== '0')
+                 <div class="container text-center">
+                   <div class="row">
+                     @if ($user->seminar)
+                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+
+                         <form action="{{ url('/sertifikat_seminar') }}" method="POST">
+                           @csrf
+                           <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
+                             name="nama">
+                           <button type="submit" class="btn btn-primary " style="width: 170px;">Sertifikat
+                             Seminar</button>
+                         </form>
+                       </div>
+                     @endif
+
+                     @if ($user->workshop)
+                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+                         <form action="{{ url('/sertifikat_workshop') }}" method="POST">
+                           @csrf
+                           <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
+                             name="nama">
+                           <input type="text" class="d-none" value="{{ $ws }}"
+                             name="ws">
+                           <button type="submit" class="btn btn-primary "
+                             style="width: 170px;">Sertifikat
+                             Workshop</button>
+                         </form>
+                       </div>
+                     @endif
+                     @if ($user->seminar)
+                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+                         <a href="">
+                           <button type="submit" class="btn btn-primary " style="width: 170px;">Materi
+                             Seminar</button>
+                         </a>
+                       </div>
+                     @endif
+                     @if ($user->workshop)
+                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+                         <a href="">
+                           <button type="submit" class="btn btn-primary " style="width: 170px;">Materi
+                             Workshop</button>
+                         </a>
+
+                       </div>
+                     @endif
+                   </div>
+                 </div>
+               @endif
+
+             </div>
+
+
 
 
 
