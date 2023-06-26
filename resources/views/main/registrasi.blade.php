@@ -128,7 +128,7 @@
 
                           <select class="form-control" name="workshop" required>
                             <option value="">Pilih opsi Workshop</option>
-                            <option value="">Tidak</option>
+                            <option value="0">Tidak</option>
                             <option value="1">Workshop 1 Manajemen Risiko</option>
                             <option value="2">Workshop 2 Optimalisasi Penangananan Dispute / Pending
                               Claim dalam Penagihan ke BPJS Kesehatan</option>
