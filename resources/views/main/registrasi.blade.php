@@ -114,7 +114,7 @@
                       <div class="form-group">
                         <div class="input-group input-group-alternative mb-3">
 
-                          <select class="form-control" name="seminar" required>
+                          <select class="form-control" name="seminar">
                             <option value="">Pilih opsi Seminar</option>
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
