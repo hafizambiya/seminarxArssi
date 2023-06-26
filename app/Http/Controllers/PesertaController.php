@@ -213,6 +213,8 @@ class PesertaController extends Controller
 
                 'nama_pendaftar' => 'required',
                 'no_hp_pendaftar' => 'required',
+                'seminar' => 'required',
+                'workshop' => 'required'
 
             ],
             [
@@ -223,6 +225,8 @@ class PesertaController extends Controller
                 'instansi.required' => 'Instansi tidak boleh kosong',
                 'phone_p.required' => 'No HP Peserta tidak boleh kosong',
                 'email_p.unique' => 'Email sudah terdaftar',
+                'seminar.required' => 'Seminar/ Workshop harus dipilih minimal 1',
+                'workshop.required' => 'Seminar/ Workshop harus dipilih minimal 1',
 
 
 

@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
+
+
 Route::post('/sertifikat_workshop', [SertifikatController::class, 'generateSertifikatw']);
 
 Route::post('/sertifikat_seminar', [SertifikatController::class, 'generateSertifikats']);

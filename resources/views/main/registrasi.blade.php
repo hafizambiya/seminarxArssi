@@ -120,6 +120,9 @@
                             <option value="0">Tidak</option>
                           </select>
                         </div>
+                        @error('seminar')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
                       {{-- ------------------------- start workshop ------------------------- --}}
                       <div class="form-group">
@@ -140,6 +143,9 @@
                               Logistik Farmasi </option>
                           </select>
                         </div>
+                        @error('workshop')
+                          <p class="text-danger">{{ $message }}</p>
+                        @enderror
                       </div>
 
 
