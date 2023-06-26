@@ -114,21 +114,19 @@
                       <div class="form-group">
                         <div class="input-group input-group-alternative mb-3">
 
-                          <select class="form-control" name="seminar">
+                          <select class="form-control" name="seminar" required>
                             <option value="">Pilih opsi Seminar</option>
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                           </select>
                         </div>
-                        @error('seminar')
-                          <p class="text-danger">{{ $message }}</p>
-                        @enderror
+
                       </div>
                       {{-- ------------------------- start workshop ------------------------- --}}
                       <div class="form-group">
                         <div class="input-group input-group-alternative mb-3">
 
-                          <select class="form-control" name="workshop">
+                          <select class="form-control" name="workshop" required>
                             <option value="">Pilih opsi Workshop</option>
                             <option value="">Tidak</option>
                             <option value="1">Workshop 1 Manajemen Risiko</option>
@@ -143,9 +141,7 @@
                               Logistik Farmasi </option>
                           </select>
                         </div>
-                        @error('workshop')
-                          <p class="text-danger">{{ $message }}</p>
-                        @enderror
+
                       </div>
 
 
