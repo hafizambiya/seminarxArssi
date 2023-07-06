@@ -12,8 +12,13 @@ class Admin extends Controller
     public function index()
     {
         $s = Peserta::where('seminar', true)
-            ->where('workshop', null or 0)
+            ->where(function ($query) {
+                $query->whereNull('workshop')
+                    ->orWhere('workshop', 0)
+                    ->orWhere('workshop', '');
+            })
             ->count();
+
 
 
         $w1 = Peserta::where('seminar', false)
