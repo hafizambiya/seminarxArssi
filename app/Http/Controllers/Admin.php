@@ -12,7 +12,7 @@ class Admin extends Controller
     public function index()
     {
         $s = Peserta::where('seminar', true)
-            ->where('workshop', null)
+            ->where('workshop', null or 0)
             ->count();
 
 
