@@ -93,7 +93,7 @@
                     <div class="col-sm-4">
                       <select class="form-control form-control-sm @error('seminar') is-invalid @enderror"
                         id="seminar" name="seminar">
-                        <option value="" selected>-Pilih-</option>
+                        <option value="0" selected>-Pilih-</option>
                         <option value="0" {{ $seminar == '0' ? 'selected' : '' }}>Tidak</option>
                         <option value="1" {{ $seminar == '1' ? 'selected' : '' }}>Ya</option>
 
@@ -109,7 +109,7 @@
                     <div class="col-sm-4">
                       <select class="form-control form-control-sm @error('workshop') is-invalid @enderror"
                         id="workshop" name="workshop">
-                        <option value="" selected>-Pilih-</option>
+                        <option value="0" selected>-Pilih-</option>
                         <option value="0" {{ $workshop == '0' ? 'selected' : '' }}>tidak</option>
                         <option value="1" {{ $workshop == '1' ? 'selected' : '' }}>1
                         </option>

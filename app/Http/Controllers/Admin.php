@@ -131,6 +131,14 @@ class Admin extends Controller
         $data->seminar = $request->seminar;
         $data->workshop = $request->workshop;
         $data->pelunasan = $request->pelunasan;
+        if ($request->seminar != 0 && $request->workshop == 0) {
+            $data->pembelian = 3750000;
+        } elseif ($request->seminar == 0 && $request->workshop != 0) {
+            $data->pembelian = 2750000;
+        } elseif ($request->seminar != 0 && $request->workshop != 0) {
+            $data->pembelian = 4500000;
+        }
+
         $data->save();
 
         return redirect('admin/' . $idpeserta)->with('msg', 'Berhasil mengedit peserta' . ' ' . $data->fullname);
