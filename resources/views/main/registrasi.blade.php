@@ -130,13 +130,11 @@
                             <option value="">Pilih opsi Workshop</option>
                             <option value="0">Tidak</option>
                             <option value="1">Workshop 1 Manajemen Risiko</option>
-                            <option value="2">Workshop 2 Optimalisasi Penangananan Dispute / Pending
-                              Claim dalam Penagihan ke BPJS Kesehatan</option>
+                            <option value="2">Workshop 2 Tantangan dan Peluang Rumah Sakit dalam Manajemen Klaim BPJS Kesehatan di Rumah Sakit</option>
                             <option value="3">Workshop 3 Program Nasional (TB, Stunting ) dalam
                               Akreditasi RS</option>
                             <option value="4">Workshop 4 E- Rekam Medis</option>
-                            <option value="5">Workshop 5 Asuhan Keperawatan yang Efektif dan Efisien
-                              Melalui E -Rekam Medis</option>
+                            <option value="5">Workshop 5 Asuhan Keperawatan Yang Efektif Dan Efisien  Melalui Optimalisasi SDM Keperawatan dalam Implementasi E-Medical Record di Rs , Puskesmas, dan Klinik</option>
                             <option value="6">Workshop 6 Supply Chain Management dalam Pengelolaan
                               Logistik Farmasi </option>
                           </select>
