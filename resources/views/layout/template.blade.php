@@ -10,7 +10,7 @@
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <!-- Favicon -->
-  <link href="{{ asset('/') }}assets/img/brand/arssi.png" rel="icon" type="image/png">
+  <link href=  rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
@@ -25,6 +25,17 @@
 
 
   <style>
+#whatsapp-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#whatsapp-popup img {
+  opacity: 0.7;
+  height: 45px;
+}
 
 
   /* Untuk lebar halaman di atas 1080px */
@@ -164,6 +175,13 @@
     </nav>
     @yield('content')
   </div>
+
+
+  <div id="whatsapp-popup">
+    <a id="whatsapp-link" href="#" target="_blank">
+      <img src="{{ asset('/') }}assets/img/chat.png" alt="WhatsApp Icon">
+    </a>
+  </div>
   <!-- Footer -->
   <footer class="py-3">
 
@@ -183,6 +201,18 @@
         application: "argon-dashboard-free"
       });
   </script>
+  <script>
+    // Mendapatkan lebar layar perangkat
+    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    // Menentukan tautan berdasarkan lebar layar
+    var whatsappLink = document.getElementById('whatsapp-link');
+    if (screenWidth < 768) { // Tablet dan ponsel
+      whatsappLink.href = 'https://api.whatsapp.com/send/?phone=628111988708';
+    } else { // Laptop
+      whatsappLink.href = 'https://web.whatsapp.com/send?phone=628111988708';
+    }
+    </script>
 
   </body>
 
