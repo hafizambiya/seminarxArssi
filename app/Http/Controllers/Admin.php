@@ -19,6 +19,11 @@ class Admin extends Controller
             })
             ->count();
 
+        $lunas = Peserta::where('pelunasan', 'lunas')->count();
+        $free = Peserta::where('pelunasan', 'free')->count();
+        $sponsor = Peserta::where('pelunasan', 'sponsor')->count();
+        $peserta2 = Peserta::where('role', 'user')->count();
+
 
 
         $w1 = Peserta::where('seminar', false)
@@ -83,6 +88,10 @@ class Admin extends Controller
         $peserta = Peserta::all();
         return view('main.admin')->with([
             'pesertas' => $peserta,
+            'free' => $free,
+            'sponsor' => $sponsor,
+            'peserta' => $peserta2,
+            'lunas' => $lunas,
             's' => $s,
             'w1' => $w1,
             'w2' => $w2,

@@ -22,6 +22,7 @@
                <p class="text-white mt-0 mb-1">Selamat datang pada laman Admin Seminar Nasional X dan
                  Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023
                </p>
+               <p class="text-white  mt-0 mb-2">lunas {{ $lunas }}| free {{ $free }}| sponsor {{ $sponsor }}| peserta {{ $peserta }}|</p>
 
                <a href="{{ url('costumpembayaran') }}">
                  <button type="submit" id="pay-button" class="btn btn-primary">Buat Virtual
