@@ -76,7 +76,7 @@
        <div class="col-lg-5 col-md-8">
          <div class="card bg-secondary shadow border-0">
 
-           <div class="card-body px-lg-5 py-lg-5">
+           <div class="card-body px-lg-5 mt-2 mb-2">
 
              <form action="{{ url('login/proses') }}" method="POST">
                @csrf
@@ -116,7 +116,7 @@
                  </label>
                </div>
                <div class="text-center">
-                 <button type="submit" class="btn btn-info my-4">Sign in</button>
+                 <button type="submit" class="btn btn-info mt-4">Sign in</button>
                </div>
              </form>
            </div>
