@@ -53,42 +53,42 @@
                    <tr class="text-white">
                      <td style="padding: 1px;">Seminar</td>
                      <td style="padding: 1px;">{{ $s }}</td>
-                     <td style="padding: 1px;">0</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
+                     <td style="padding: 1px;"></td>
                    </tr>
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 1</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w1 }}</td>
                      <td style="padding: 1px;">{{ $sw1 }}</td>
                    </tr>
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 2</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w2 }}</td>
                      <td style="padding: 1px;">{{ $sw2 }}</td>
                    </tr>
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 3</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w3 }}</td>
                      <td style="padding: 1px;">{{ $sw3 }}</td>
                    </tr>
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 4</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w4 }}</td>
                      <td style="padding: 1px;">{{ $sw4 }}</td>
                    </tr class="text-white">
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 5</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w5 }}</td>
                      <td style="padding: 1px;">{{ $sw5 }}</td>
                    </tr>
                    <tr class="text-white">
                      <td style="padding: 1px;">Workshop 6</td>
-                     <td style="padding: 1px;">0</td>
+                     <td style="padding: 1px;"></td>
                      <td style="padding: 1px;">{{ $w6 }}</td>
                      <td style="padding: 1px;">{{ $sw6 }}</td>
                    </tr>
