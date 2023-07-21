@@ -18,7 +18,7 @@
            <div class="row">
 
              <div class="col-lg-7 col-md-10 col-12">
-               <h1 class="display-2 text-white mt-1">Hello Admin ARSSI X</h1>
+               <h1 class="display-2 text-white mt-1">Hello ARSSI</h1>
                <p class="text-white mt-0 mb-1">Selamat datang pada laman Admin Seminar Nasional X dan
                  Healthcare Expo VIII yang akan diadakan di Hotel The RitzCalton Jakarta, 26-28 Juli 2023
                </p>
