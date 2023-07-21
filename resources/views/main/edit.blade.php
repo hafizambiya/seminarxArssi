@@ -81,6 +81,8 @@
                         <option value="free" {{ $pelunasan == 'free' ? 'selected' : '' }}>free</option>
                         <option value="sponsor" {{ $pelunasan == 'sponsor' ? 'selected' : '' }}>sponsor
                         </option>
+                        <option value="guarantee-letter" {{ $pelunasan == 'guarantee-letter' ? 'selected' : '' }}>guarantee-letter
+                        </option>
                       </select>
                       @error('pelunasan')
                         <div class="invalid-feedback">{{ $message }}</div>

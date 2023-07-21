@@ -11,7 +11,7 @@
      session()->put('order_count', $orderCount);
      $snaptoken = $user->snaptoken;
      $ws = $user->workshop;
-     
+
    @endphp
    {{-- {{ dd($user->all()) }} --}}
    <div class="main-content">
@@ -331,11 +331,10 @@
                      <div class="col-lg-4">
                        <div class="form-group">
                          <label class="form-control-label" for="input-country">Status</label>
-                         <input type="text" id="input-country"
-                           class="form-control form-control-alternative" placeholder=""
+                         <input type="text" id=""
+                           class="form-control form-control-alternative text-left" placeholder=""
                            value="@if ($user->pelunasan == 0) Belum lunas
-                           @else
-                               {{ $user->pelunasan }} @endif"
+                           @else{{ $user->pelunasan }} @endif"
                            readonly>
                        </div>
                      </div>

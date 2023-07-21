@@ -29,7 +29,7 @@ return new class extends Migration
             $table->boolean('seminar')->default(false);
             $table->integer('workshop')->nullable();
             $table->char('pembelian');
-            $table->enum('pelunasan', [0, 'lunas', 'free', 'sponsor']);
+            $table->enum('pelunasan', [0, 'lunas', 'free', 'sponsor','guarantee-letter']);
             $table->string('password');
             $table->string('snaptoken')->nullable();
             // $table->string('orderCount')->nullable();
