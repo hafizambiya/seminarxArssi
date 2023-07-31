@@ -117,7 +117,15 @@
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
            </div>
            <div class="col-lg-5">
-            <div class="">
+            <div class="card text-dark bg-info mb-3 top-desktop" style="">
+                <div class="card-header">Pengumuman</div>
+                <div class="card-body">
+                  <h5 class="card-title">E-Sertifikat dan Materi</h5>
+                  <p class="card-text text-justify">Mohon maaf atas ketidaknyamanannya untuk sertifikat dan materi belum dapat kami publish hari ini, kami usahakan dalam dua hari kedepan sudah dapat di akses via web ini
+              </div>
+            </div>
+
+            <div class="d-none">
               @if ($user->pelunasan !== '0')
                 <div class="container text-center">
                   <div class="row top-desktop">
