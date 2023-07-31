@@ -39,10 +39,13 @@
 
 
   /* Untuk lebar halaman di atas 1080px */
-  @media (min-width: 1080px) {
+  @media (min-width: 1040px) {
     .container-kotak {
       margin-top: -9rem;
       /* background-color:red; */
+    }
+    top-desktop{
+        margin-top: 150px;
     }
   }
 

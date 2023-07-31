@@ -114,66 +114,63 @@
 
                </div>
              </div>
-
-             <div class="d-none">
-               @if ($user->pelunasan !== '0')
-                 <div class="container text-center">
-                   <div class="row">
-                     @if ($user->seminar)
-                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-
-                         <form action="{{ url('/sertifikat_seminar') }}" method="POST">
-                           @csrf
-                           <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
-                             name="nama">
-                           <button type="submit" class="btn btn-primary " style="width: 170px;">Sertifikat
-                             Seminar</button>
-                         </form>
-                       </div>
-                     @endif
-
-                     @if ($user->workshop)
-                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-                         <form action="{{ url('/sertifikat_workshop') }}" method="POST">
-                           @csrf
-                           <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
-                             name="nama">
-                           <input type="text" class="d-none" value="{{ $ws }}"
-                             name="ws">
-                           <button type="submit" class="btn btn-primary "
-                             style="width: 170px;">Sertifikat
-                             Workshop</button>
-                         </form>
-                       </div>
-                     @endif
-                     @if ($user->seminar)
-                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-                         <a href="">
-                           <button type="submit" class="btn btn-primary " style="width: 170px;">Materi
-                             Seminar</button>
-                         </a>
-                       </div>
-                     @endif
-                     @if ($user->workshop)
-                       <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-                         <a href="">
-                           <button type="submit" class="btn btn-primary " style="width: 170px;">Materi
-                             Workshop</button>
-                         </a>
-
-                       </div>
-                     @endif
-                   </div>
-                 </div>
-               @endif
-
-             </div>
-
-
-
-
-
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
+           </div>
+           <div class="col-lg-5">
+            <div class="">
+              @if ($user->pelunasan !== '0')
+                <div class="container text-center">
+                  <div class="row top-desktop">
+                    @if ($user->seminar)
+                      <div class="col col-lg-12 col-12 col-sm-12  mb-3">
+
+                        <form action="{{ url('/sertifikat_seminar') }}" method="POST">
+                          @csrf
+                          <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
+                            name="nama">
+                          <button type="submit" class="btn btn-info border border-white" style="width: 170px;">Sertifikat
+                            Seminar</button>
+                        </form>
+                      </div>
+                    @endif
+
+                    @if ($user->workshop)
+                      <div class="col col-lg-12 col-12 col-sm-12  mb-3">
+                        <form action="{{ url('/sertifikat_workshop') }}" method="POST">
+                          @csrf
+                          <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
+                            name="nama">
+                          <input type="text" class="d-none" value="{{ $ws }}"
+                            name="ws">
+                          <button type="submit" class="btn btn-info border border-white"
+                            style="width: 170px;">Sertifikat
+                            Workshop</button>
+                        </form>
+                      </div>
+                    @endif
+                    @if ($user->seminar)
+                      <div class="col col-lg-12 col-12 col-sm-12  mb-3">
+                        <a href="">
+                          <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
+                            Seminar</button>
+                        </a>
+                      </div>
+                    @endif
+                    @if ($user->workshop)
+                      <div class="col col-lg-12 col-12 col-sm-12  mb-3">
+                        <a href="">
+                          <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
+                            Workshop</button>
+                        </a>
+
+                      </div>
+                    @endif
+                  </div>
+                </div>
+              @endif
+
+            </div>
+
            </div>
          </div>
        </div>

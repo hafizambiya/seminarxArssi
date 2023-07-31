@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use setasign\Fpdi\Fpdi;
+// use setasign\Fpdi\Tcpdf\FpdfTpl;
 
 class SertifikatController extends Controller
 {
+
+
     public function generateSertifikatw(Request $request)
     {
         // Mendapatkan data yang diperlukan, misalnya nama penerima sertifikat
@@ -60,7 +63,7 @@ class SertifikatController extends Controller
         $namaPenerima = $nama;
 
         // Path ke file sertifikat template
-        $templatePath = storage_path('../public/assets/img/brand/sertif.pdf');
+        $templatePath = storage_path('../public/assets/img/brand/Seminar.pdf');
 
         // Membuat objek FPDI
         $pdf = new Fpdi();
@@ -81,7 +84,8 @@ class SertifikatController extends Controller
         $pdf->useTemplate($templateId, 0, 0, $templateWidth, $templateHeight, true);
 
         // Menambahkan teks dinamis ke sertifikat
-        $pdf->SetFont('Arial', '', 24);
+        $pdf->AddFont('corsiva','','Monotype-Corsiva.php');
+        $pdf->SetFont('corsiva', '', 40);
         $pdf->SetTextColor(0, 0, 0);
         $textWidth = $pdf->GetStringWidth($nama); // Mendapatkan lebar teks
 

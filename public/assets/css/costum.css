@@ -1,87 +1,87 @@
+@media (max-width: 500px) {
+    .admin-tinggi {
+        margin-top: 110px;
+        margin-bottom: 120px;
+    }
 
-@media(max-width:500px){
-.admin-tinggi{
-margin-top: 110px;
-margin-bottom: 120px;
-  }
-
-  .batas-bawah{
-    margin-bottom: 60px;
-  }
-  .font-hp{
-    font-size: 16px;
-  }
-
-
+    .batas-bawah {
+        margin-bottom: 60px;
+    }
+    .font-hp {
+        font-size: 16px;
+    }
 }
 
+@media (max-width: 850px) {
+    .admin-tinggi {
+        margin-top: 110px;
+        margin-bottom: 120px;
+    }
 
-@media(max-width:850px){
-.admin-tinggi{
-margin-top: 110px;
-margin-bottom: 120px;
-  }
+    .tex-tengah-tablet {
+        text-align: center;
+    }
 
-.tex-tengah-tablet{
-    text-align: center;
-}
+    .margin-atas-tablet {
+        margin-top: 50px;
+    }
 
-.margin-atas-tablet{
-    margin-top: 50px;
-}
+    .batas-bawah {
+        margin-bottom: 50px;
+    }
 
-  .batas-bawah{
-    margin-bottom: 50px;
-  }
-
-  .logo-arssi{
+    .logo-arssi {
         display: inline;
         font-size: 16px;
         color: aliceblue;
         margin-left: 10px;
     }
-    .daftar{
+    .daftar {
         margin-bottom: 30px;
     }
 }
 
-@media(min-width:850px){
-    .logo-arssi{
+@media (min-width: 850px) {
+    .logo-arssi {
         display: inline;
         font-size: 20px;
         color: aliceblue;
         margin-left: 10px;
     }
+
+    .top-desktop {
+        margin-top: 50px;
+    }
 }
 
-@media(max-width:500px){
-.admin-tinggi{
-margin-top: 110px;
-margin-bottom: 120px;
-  }
+@media (max-width: 500px) {
+    .admin-tinggi {
+        margin-top: 110px;
+        margin-bottom: 120px;
+    }
 
-  .batas-bawah{
-    margin-bottom: 60px;
-  }
-  .font-hp{
-    font-size: 16px;
-  }
-  .logo-arssi{
+    .batas-bawah {
+        margin-bottom: 60px;
+    }
+    .font-hp {
+        font-size: 16px;
+    }
+    .logo-arssi {
         display: none;
     }
 
-    .barcode{
+    .barcode {
         margin-top: 60px;
     }
-    .nama-peserta{
+    .nama-peserta {
         padding-top: 80px;
     }
 
-    .margin-atas-tablet{
-    margin-top: 0px;
-}
+    .margin-atas-tablet {
+        margin-top: 0px;
+    }
 }
 
-.fs-justify{
+.fs-justify {
     text-align: justify;
 }
