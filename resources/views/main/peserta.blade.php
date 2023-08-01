@@ -121,7 +121,7 @@
                 <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
-                  <p class="card-text text-justify">E-Sertifikat dan Materi sudah dapat diunduh, untuk sertifikat workshop keperawatan dan materi Workshop E-MR akan segera kami perbaharui</p>
+                  <p class="card-text text-justify">Materi Sudah dapat di unduh, sertifikat kami ushakan minggu ini terpublish</p>
               </div>
             </div>
 
@@ -168,7 +168,7 @@
                       <div class="container text-center">
                         <div class="row top-desktop  justify-content-center">
                           @if ($user->seminar)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 ">
+                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none">
 
                               <form action="{{ url('/sertifikat_seminar') }}" method="POST">
                                 @csrf
@@ -180,7 +180,7 @@
                           @endif
 
                           @if (in_array($user->workshop, [1, 2, 3, 4, 6]))
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 ">
+                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none ">
                               <form action="{{ url('/sertifikat_workshop') }}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
