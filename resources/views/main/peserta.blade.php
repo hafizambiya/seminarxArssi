@@ -121,7 +121,7 @@
                 <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
-                  <p class="card-text text-justify">Mohon maaf atas ketidaknyamanannya untuk sertifikat dan materi belum dapat kami publish hari ini, kami usahakan dalam dua hari kedepan sudah dapat di akses via web ini
+                  <p class="card-text text-justify">Untuk Materi silahkan di unduh pada tombol "Materi" terkecuali workshop 4 yang akan segera kami update, untuk sertifikat kami ushakan minggu ini sudah bisa di unduh
               </div>
             </div>
 
@@ -196,7 +196,7 @@
                           @endif
                           @if ($user->seminar)
                             <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-                              <a href="">
+                              <a href="https://bit.ly/seminarx10" target="_blank">
                                 <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
                                   Seminar</button>
                               </a>
@@ -204,7 +204,7 @@
                           @endif
                           @if ($user->workshop)
                             <div class="col col-lg-3 col-12 col-sm-12  mb-3">
-                              <a href="https://bit.ly/{{ $user->workshop }}wsmtr">
+                              <a href="https://bit.ly/{{ $user->workshop }}wsmtr" target="_blank">
                                 <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
                                   Workshop</button>
                               </a>
