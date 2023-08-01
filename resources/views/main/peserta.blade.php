@@ -121,7 +121,7 @@
                 <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
-                  <p class="card-text text-justify">Untuk Materi silahkan di unduh pada tombol "Materi" terkecuali workshop 4 yang akan segera kami update, untuk sertifikat kami ushakan minggu ini sudah bisa di unduh
+                  <p class="card-text text-justify">E-Sertifikat dan Materi sudah dapat diunduh, untuk sertifikat workshop keperawatan dan materi Workshop E-MR akan segera kami perbaharui</p>
               </div>
             </div>
 
@@ -168,20 +168,19 @@
                       <div class="container text-center">
                         <div class="row top-desktop  justify-content-center">
                           @if ($user->seminar)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none">
+                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 ">
 
                               <form action="{{ url('/sertifikat_seminar') }}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
                                   name="nama">
-                                <button type="submit" class="btn btn-info border border-white" style="width: 170px;">Sertifikat
-                                  Seminar</button>
+                                <button type="submit" class="btn btn-info border border-white" style="width: 170px;">Sertifikat Seminar</button>
                               </form>
                             </div>
                           @endif
 
-                          @if ($user->workshop)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none">
+                          @if (in_array($user->workshop, [1, 2, 3, 4, 6]))
+                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 ">
                               <form action="{{ url('/sertifikat_workshop') }}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
@@ -189,8 +188,7 @@
                                 <input type="text" class="d-none" value="{{ $ws }}"
                                   name="ws">
                                 <button type="submit" class="btn btn-info border border-white"
-                                  style="width: 170px;">Sertifikat
-                                  Workshop</button>
+                                  style="width: 170px;">Sertifikat Workshop</button>
                               </form>
                             </div>
                           @endif
