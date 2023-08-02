@@ -117,7 +117,7 @@
              {{-- <a href="#!" class="btn btn-info">Edit profile</a> --}}
            </div>
            <div class="col-lg-5">
-            <div class="card text-dark bg-info mb-3 top-desktop" style="">
+            <div class="card text-dark bg-info mb-3 mt-5" style="">
                 <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
