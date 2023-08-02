@@ -168,7 +168,7 @@
                       <div class="container text-center">
                         <div class="row top-desktop  justify-content-center">
                           @if ($user->seminar)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none">
+                            <div class="col col-lg-12 col-12 col-sm-12  mb-3 ">
 
                               <form action="{{ url('/sertifikat_seminar') }}" method="POST">
                                 @csrf
@@ -180,7 +180,7 @@
                           @endif
 
                           @if (in_array($user->workshop, [1, 2, 3, 4, 6]))
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3 d-none ">
+                            <div class="col col-lg-12 col-12 col-sm-12  mb-3 ">
                               <form action="{{ url('/sertifikat_workshop') }}" method="POST">
                                 @csrf
                                 <input type="text" class="d-none" value="{{ $user->nama_peserta }}"
@@ -193,7 +193,7 @@
                             </div>
                           @endif
                           @if ($user->seminar)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+                            <div class="col col-lg-12 col-12 col-sm-12  mb-3">
                               <a href="https://bit.ly/seminarx10" target="_blank">
                                 <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
                                   Seminar</button>
@@ -201,7 +201,7 @@
                             </div>
                           @endif
                           @if ($user->workshop)
-                            <div class="col col-lg-3 col-12 col-sm-12  mb-3">
+                            <div class="col col-lg-12 col-12 col-sm-12  mb-3">
                               <a href="https://bit.ly/{{ $user->workshop }}wsmtr" target="_blank">
                                 <button type="submit" class="btn btn-info border border-white " style="width: 170px;">Materi
                                   Workshop</button>
