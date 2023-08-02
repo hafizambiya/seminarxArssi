@@ -121,7 +121,7 @@
                 <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
-                  <p class="card-text text-justify">Materi Sudah dapat di unduh, sertifikat kami ushakan minggu ini terpublish</p>
+                  <p class="card-text text-justify">E-Sertifikat dan materi sudah dapat di unduh, untuk e-sertifikat workshop keperawatan masih dalam proses</p>
               </div>
             </div>
 
