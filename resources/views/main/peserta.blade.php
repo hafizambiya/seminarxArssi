@@ -118,10 +118,10 @@
            </div>
            <div class="col-lg-5">
             <div class="card text-dark bg-info mb-3 mt-5" style="">
-                <div class="card-header">PENGUMUMAN</div>
+                <div class="card-header">Pengumuman</div>
                 <div class="card-body">
                   <h5 class="card-title">E-Sertifikat dan Materi</h5>
-                  <p class="card-text text-justify">E-Sertifikat dan materi sudah dapat di unduh, untuk e-sertifikat workshop keperawatan masih dalam proses</p>
+                  <p class="card-text text-justify">E-Sertifikat dan materi sudah dapat di unduh, dimohon untuk segera menyimpan materi dan sertifikat, dikhawatirkan website akan kami takedown dalam waktu dekat.</p>
               </div>
             </div>
 
@@ -179,7 +179,7 @@
                             </div>
                           @endif
 
-                          @if (in_array($user->workshop, [1, 2, 3, 4, 6]))
+                          @if (in_array($user->workshop, [1, 2, 3, 4, 5, 6]))
                             <div class="col col-lg-12 col-12 col-sm-12  mb-3 ">
                               <form action="{{ url('/sertifikat_workshop') }}" method="POST">
                                 @csrf
