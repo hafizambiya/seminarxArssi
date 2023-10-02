@@ -12,19 +12,6 @@ class OrderController extends Controller
     {
         $order = $request->all();
 
-
-
-        /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
-composer require midtrans/midtrans-php
-
-Alternatively, if you are not using **Composer**, you can download midtrans-php library
-(https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require
-the file manually.
-
-require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
-
-        //SAMPLE REQUEST START HERE
-
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
